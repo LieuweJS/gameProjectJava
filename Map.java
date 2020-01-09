@@ -44,7 +44,7 @@ public class Map {
             this.chamberType = chamberSize;
             this.xLen = (int) Math.round(Random(800,1200)+this.chamberType);
             this.yLen = (int) Math.round(Random(800,1200)+this.chamberType);
-            this.xCoord = 0;//prevXCoord+200;
+            this.xCoord = 0;
             this.yCoord = 0;
             this.chamberNumber = chamberNumb;
         }

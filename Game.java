@@ -2,7 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
-
+/**
+only render room player is currently in.   
+*/
 public class Game extends JFrame {
     protected JTextField textField;
     public Game() {
@@ -37,7 +39,6 @@ class Canv extends JPanel {
         setBackground(Color.GRAY);
     }
 
-    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D drawImage = (Graphics2D) g;
@@ -53,7 +54,6 @@ class Canv extends JPanel {
         y = width;
         repaint();
     }
-
     public static int getRandomIntegerBetweenRange(int min, int max){
         int x = (int)(Math.random()*((max-min)+1))+min;
         return x;
