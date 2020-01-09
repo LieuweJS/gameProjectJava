@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=MainPaint
+comment1.params=
+comment1.target=MainPaint()
+comment2.params=arg0
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

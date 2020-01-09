@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Map
+comment1.params=TotalChamberNumbs
+comment1.target=Map(int)
+comment2.params=index
+comment2.target=int\ getChamberXCoord(int)
+comment3.params=index\ x
+comment3.target=void\ setChamberXCoord(int,\ int)
+comment4.params=index
+comment4.target=int\ getChamberYCoord(int)
+comment5.params=index\ y
+comment5.target=void\ setChamberYCoord(int,\ int)
+comment6.params=amountOfChambers
+comment6.target=void\ generateGameWorld(int)
+comment7.params=min\ max
+comment7.target=int\ Random(int,\ int)
+comment8.params=
+comment8.target=void\ generateMapLayout()
+numComments=9
