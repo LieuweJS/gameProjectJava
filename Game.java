@@ -1,18 +1,63 @@
-import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.Random;
 
-public class Game {
-    public static void main (String[]args) {
-        JFrame jframe = new JFrame();
-        JPanel jpanel = new JPanel();
-        jframe.setSize(1000,1000);
-        jpanel.setLayout(new BorderLayout());
-        jframe.add(jpanel);
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jpanel.add(new MapSystem());
-        jframe.setVisible(true);
+public class Game extends JFrame {
+    protected JTextField textField;
+    public Game() {
+        setTitle("Game");
+        setSize(1000, 500);
+        setLayout(new BorderLayout());
+        textField = new JTextField(20);
+        final Canv canvas = new Canv();
+        add(canvas, BorderLayout.CENTER);
+        add(textField, BorderLayout.PAGE_END);
+        textField.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent arg0) {
+                    String text = textField.getText();
+                    canvas.updateGraphics(50, 50);
+                    repaint();
+                }
+            });
+        pack();
+        setVisible(true);
     }
 
+    public static void main(String[] args) {
+        new Game();
+    }
+}
+
+class Canv extends JPanel {
+    private int x, y;
+    private Color color = null;
+
+    public Canv() {
+        setBackground(Color.GRAY);
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D drawImage = (Graphics2D) g;
+        if (color != null) {
+            drawImage.setColor(Color.red);
+            drawImage.fillOval(getWidth()/2-25, getHeight()/2-25, 50, 50);
+        }
+    }
+
+    public void updateGraphics(int length, int width) {
+        color = Color.RED;
+        x = length;
+        y = width;
+        repaint();
+    }
+
+    public static int getRandomIntegerBetweenRange(int min, int max){
+        int x = (int)(Math.random()*((max-min)+1))+min;
+        return x;
+    }
 }
 /*import java.awt.*;
 import javax.swing.*;

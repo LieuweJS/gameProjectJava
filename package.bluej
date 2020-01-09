@@ -1,7 +1,4 @@
 #BlueJ package file
-dependency1.from=Game
-dependency1.to=MapSystem
-dependency1.type=UsesDependency
 editor.fx.0.height=737
 editor.fx.0.width=814
 editor.fx.0.x=360
@@ -12,11 +9,11 @@ package.divider.horizontal=0.6
 package.divider.vertical=0.8479212253829321
 package.editor.height=614
 package.editor.width=654
-package.editor.x=0
-package.editor.y=0
+package.editor.x=353
+package.editor.y=191
 package.frame.height=830
 package.frame.width=780
-package.numDependencies=1
+package.numDependencies=0
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
