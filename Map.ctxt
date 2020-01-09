@@ -1,19 +1,6 @@
 #BlueJ class context
 comment0.target=Map
-comment1.params=TotalChamberNumbs
-comment1.target=Map(int)
-comment2.params=index
-comment2.target=int\ getChamberXCoord(int)
-comment3.params=index\ x
-comment3.target=void\ setChamberXCoord(int,\ int)
-comment4.params=index
-comment4.target=int\ getChamberYCoord(int)
-comment5.params=index\ y
-comment5.target=void\ setChamberYCoord(int,\ int)
-comment6.params=amountOfChambers
-comment6.target=void\ generateGameWorld(int)
-comment7.params=min\ max
-comment7.target=int\ Random(int,\ int)
-comment8.params=
-comment8.target=void\ generateMapLayout()
-numComments=9
+comment0.text=}\r\npublic\ void\ generateGameWorld(int\ amountOfChambers)\ {\r\nMap\ myMap\ \=\ new\ Map(amountOfChambers);\r\nSystem.out.println(myMap);\r\n}\r\n\r\npublic\ int\ Random(int\ min,\ int\ max)\ {\r\nint\ num\ \=\ (int)\ Math.round(Math.random()\ *\ (max\ -\ min\ +\ 1)\ +\ min);\r\nreturn\ num;\r\n}\r\n\r\npublic\ void\ generateMapLayout()\ {\r\nint\ totalIndex\ \=\ 0;\r\nint\ currX\ \=\ 0;\r\nfor(int\ i\ \=\ 0;\ i\ <\ this.chamberNumbs;\ i++)\ {\r\nthis.chambers.get(totalIndex).setChamberXCoord(currX+this.chambers.get(totalIndex).getChamberXLen());\r\ncurrX\ \=\ currX+this.chambers.get(totalIndex).getChamberXLen();\r\ntotalIndex++;\r\n//System.out.println(this.chambers.get(totalIndex).getLevelNr());\ \ \ \ \r\n}\ \r\n}\r\n}
+comment1.params=
+comment1.target=Map()
+numComments=2
