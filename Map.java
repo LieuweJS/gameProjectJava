@@ -291,9 +291,10 @@ public class Map {
         int ChamberNumber;
         // ArrayList<Enemy> enemies = new ArrayList<Enemy>();
         // ArrayList<Item> items = new ArrayList<Item>();
-        ArrayList<ArrayList<GroundType>> chamber = new ArrayList<>();
+        ArrayList<ArrayList<GroundType>> chamber = new ArrayList<>(15);
         public Chamber(int ChamberNum, String[][] chamberMap) {
             for(int i = 0; i < 15; i++) {
+                chamber.add(new ArrayList());
                 for(int j = 0; j < 15; j++) {
                     if(chamberMap[i][j] == "W") {
                         chamber.get(i).add(new GroundType("Wall"));
@@ -311,6 +312,7 @@ public class Map {
                 }
             }
         }
+        public String getGroundType(int i, int j) {return this.chamber.get(i).get(j).getGroundType();}
         public class GroundType {
             String GroundType;
             public GroundType(String type) {
