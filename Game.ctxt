@@ -7,4 +7,6 @@ comment2.params=arg0
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment3.params=args
 comment3.target=void\ main(java.lang.String[])
-numComments=4
+comment4.params=min\ max
+comment4.target=int\ getRandomIntegerBetweenRange(int,\ int)
+numComments=5
