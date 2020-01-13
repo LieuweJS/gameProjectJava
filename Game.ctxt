@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Game
-comment0.text=\r\nonly\ render\ room\ player\ is\ currently\ in.\ \ \ \r\n
 comment1.params=
 comment1.target=Game()
 comment2.params=arg0

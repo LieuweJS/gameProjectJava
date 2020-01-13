@@ -2,9 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
-/**
-only render room player is currently in.   
- */
+
 public class Game extends JFrame {
     protected JTextField textField;
     Map map;
@@ -21,7 +19,7 @@ public class Game extends JFrame {
         textField.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     String input = textField.getText();
-                    map.compare(input);
+                    map.compare(input, map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
                     canvas.updateGraphics(50, 50);
                     textField.setText("");
                     repaint();
@@ -41,7 +39,7 @@ public class Game extends JFrame {
         Map map;
         public Canv(Map map) {
             this.map = map;
-            setBackground(Color.GRAY);
+            setBackground(Color.BLUE);
         }
 
         public void paintComponent(Graphics g) {
@@ -49,12 +47,15 @@ public class Game extends JFrame {
             Graphics2D drawImage = (Graphics2D) g;
             for(int i = 0; i < 750; i+=50) {
                 for(int j = 0; j < 750; j+= 50){
+                    drawImage.setColor(map.chamberList.get(map.getCurrentFloor()).getColor(j/50,i/50));
+                    drawImage.fillRect(i,j,50,50);
+                    drawImage.setColor(color.BLACK);
                     drawImage.drawRect(i,j,50,50);
                 }
             }
             drawImage.setColor(Color.red);
             drawImage.fillOval(map.getPlayerX(),map.getPlayerY(), 50, 50);
-            System.out.println(map.chamberList.get(0).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
+            System.out.println(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
         }
 
         public void updateGraphics(int length, int width) {
