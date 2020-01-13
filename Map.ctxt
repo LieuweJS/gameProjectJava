@@ -3,8 +3,6 @@ comment0.target=Map
 comment0.text=}\r\npublic\ void\ generateGameWorld(int\ amountOfChambers)\ {\r\nMap\ myMap\ \=\ new\ Map(amountOfChambers);\r\nSystem.out.println(myMap);\r\n}\r\n\r\npublic\ int\ Random(int\ min,\ int\ max)\ {\r\nint\ num\ \=\ (int)\ Math.round(Math.random()\ *\ (max\ -\ min\ +\ 1)\ +\ min);\r\nreturn\ num;\r\n}\r\n\r\npublic\ void\ generateMapLayout()\ {\r\nint\ totalIndex\ \=\ 0;\r\nint\ currX\ \=\ 0;\r\nfor(int\ i\ \=\ 0;\ i\ <\ this.chamberNumbs;\ i++)\ {\r\nthis.chambers.get(totalIndex).setChamberXCoord(currX+this.chambers.get(totalIndex).getChamberXLen());\r\ncurrX\ \=\ currX+this.chambers.get(totalIndex).getChamberXLen();\r\ntotalIndex++;\r\n//System.out.println(this.chambers.get(totalIndex).getLevelNr());\ \ \ \ \r\n}\ \r\n}\r\n}
 comment1.params=
 comment1.target=Map()
-comment10.params=min\ max
-comment10.target=int\ getRandomIntegerBetweenRange(int,\ int)
 comment2.params=x
 comment2.target=void\ setPlayerX(int)
 comment3.params=y
@@ -21,4 +19,4 @@ comment8.params=
 comment8.target=void\ back()
 comment9.params=
 comment9.target=void\ givePlayerRandomItem()
-numComments=11
+numComments=10

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Attack
+comment1.params=Name\ Damage
+comment1.target=Attack(java.lang.String,\ int)
+numComments=2

@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Player
+comment1.params=
+comment1.target=Player()
+comment10.params=weight
+comment10.target=boolean\ addWeightPossible(double)
+comment2.params=floor
+comment2.target=void\ setCurrentFloor(int)
+comment3.params=
+comment3.target=void\ addToBackLog()
+comment4.params=
+comment4.target=void\ back()
+comment5.params=
+comment5.target=void\ addToInventory()
+comment6.params=x
+comment6.target=void\ setX(int)
+comment7.params=y
+comment7.target=void\ setY(int)
+comment8.params=
+comment8.target=int\ getX()
+comment9.params=
+comment9.target=int\ getY()
+numComments=11
