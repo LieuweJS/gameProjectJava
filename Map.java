@@ -9,20 +9,20 @@ public class Map {
         this.addToBackLog();
         String[][] chamber1 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"N","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","W","W","W","W","W","N","W","W","W","W","W","W","W"}};
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber2 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -31,7 +31,7 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"P","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -41,6 +41,7 @@ public class Map {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber3 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"P","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -52,11 +53,10 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber4 = {
-                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"W","W","W","W","W","P","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -70,9 +70,9 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
+                {"W","W","W","W","W","W","W","W","W","W","W","W","N","W","W"}};
         String[][] chamber5 = {
-                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","P","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -86,7 +86,7 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
+                {"W","N","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber6 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -94,12 +94,12 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"P","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
@@ -130,7 +130,7 @@ public class Map {
     public int getPlayerY() {
         return this.player.getY();
     }
-
+public void hardSetPlayerX(int x) {this.player.hardSetPlayerX()}
     public void compare(String input, String GroundType) {
         if(input.equals("go left")) {
             this.setPlayerX(-50);
@@ -151,10 +151,14 @@ public class Map {
         } else if(input.equals("next floor")) {
             if(GroundType.equals("NextFloorDoor")) {
                 this.player.setCurrentFloor(1);
+                this.hardSetPlayerX(100);
+                this.hardSetPlayerY(100);
             }    
         } else if(input.equals("previous floor")) {
             if(GroundType.equals("PreviousFloorDoor")) {
                 this.player.setCurrentFloor(-1);
+                this.setPlayerX(100);
+                this.setPlayerY(100);
             }
         }
     }
@@ -229,7 +233,8 @@ public class Map {
             this.currentWeight = 0.0;
             this.currentFloor = 0;
         }
-
+        public void hardSetPlayerX(int x) {this.x = x;}
+        public void hardSetPlayerY(int y) {this.y = y;}
         public void setCurrentFloor(int floor) {
             this.currentFloor += floor;
         }
