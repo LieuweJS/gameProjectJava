@@ -114,24 +114,6 @@ public class Map {
 
     }
 
-    public void setPlayerX(int x) {this.player.setX(x);}
-
-    public void setPlayerY(int y) {this.player.setY(y);}
-
-    public int getPlayerX() {return this.player.getX();} 
-
-    public int getPlayerY() {return this.player.getY();}
-
-    public int getCurrentFloor() {return this.player.getCurrentFloor();}
-
-    public void hardSetPlayerX(int x) {this.player.hardSetPlayerX(x);}
-
-    public void hardSetPlayerY(int y) {this.player.hardSetPlayerY(y);}
-
-    public void addToBackLog() {this.player.addToBackLog();}
-
-    public void back() {this.player.back();}
-
     public void printInventory(JTextArea textArea) {
         for(int i = 0; i < this.player.inventory.size(); i++) {
             textArea.setText(this.player.itemToString(this.player.inventory.get(i)) + textArea.getText());
@@ -175,6 +157,7 @@ public class Map {
                 this.player.setCurrentFloor(1);
                 this.hardSetPlayerX(50);
                 this.hardSetPlayerY(50);
+                this.player.addToBackLog();
                 textArea.setText("Command 'next floor' recognised: you have moved to the next floor.\n" + textArea.getText());
             }    
         } else if(input.equals("previous floor")) {
@@ -183,6 +166,7 @@ public class Map {
                 this.player.setCurrentFloor(-1);
                 this.hardSetPlayerX(50);
                 this.hardSetPlayerY(50);
+                this.player.addToBackLog();
                 textArea.setText("Command 'previous floor' recognised: you have moved to the previous floor.\n" + textArea.getText());
             }
         } else if(input.equals("open chest")) {
@@ -202,6 +186,8 @@ public class Map {
         } else if(input.equals("open inventory")) {
             this.printInventory(textArea);
             textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
+        } else if(input.equals("clear console")) {
+             textArea.setText("");
         } else {
             textArea.setText("Command not recognised.\n" + textArea.getText());
         }
@@ -279,6 +265,7 @@ public class Map {
         ArrayList<Item> inventory = new ArrayList<Item>();
         ArrayList<Integer> xBackLog = new ArrayList<Integer>();
         ArrayList<Integer> yBackLog = new ArrayList<Integer>();
+        ArrayList<Integer> floorBackLog = new ArrayList<Integer>();
         public Player() {
             this.x = 50;
             this.y = 50;
@@ -290,35 +277,19 @@ public class Map {
             this.addToInventory();
         }
 
-        public String itemToString(Item item) {
-            return "Item: \n"+ "   "+item.Type + ": " + String.valueOf(item.Effect) + "\n    Weight: " + String.valueOf(item.Weight) + "\n";
-        }
-
-        public void hardSetPlayerX(int x) {this.x = x;}
-
-        public void hardSetPlayerY(int y) {this.y = y;}
-
-        public void setCurrentFloor(int floor) {this.currentFloor += floor;}
-
-        public int getCurrentFloor() {return this.currentFloor;}
-
-        public void addToBackLog() {
-            this.xBackLog.add(this.x);
-            this.yBackLog.add(this.y);
-        }
-
         public void back() {
-            //System.out.println(Arrays.deepToString(this.xBackLog.toArray()));
-            //System.out.println(Arrays.toString(this.yBackLog.toArray()));
-            if(this.xBackLog.size() != 0 && this.yBackLog.size() != 0) {
-                if(this.xBackLog.size() == 1 && this.yBackLog.size() == 1) {
+            if(this.xBackLog.size() != 0 && this.yBackLog.size() != 0 && this.floorBackLog.size() != 0) {
+                if(this.xBackLog.size() == 1 && this.yBackLog.size() == 1 && this.floorBackLog.size() == 1) {
                     this.x = xBackLog.get(0);
                     this.y = yBackLog.get(0);
+                    this.currentFloor = floorBackLog.get(0);
                 } else {  
                     this.xBackLog.remove(xBackLog.size()-1);
                     this.yBackLog.remove(yBackLog.size()-1);
+                    this.floorBackLog.remove(floorBackLog.size()-1);
                     this.x = xBackLog.get(xBackLog.size()-1);
                     this.y = yBackLog.get(yBackLog.size()-1);
+                    this.currentFloor = floorBackLog.get(floorBackLog.size()-1);
                 }
             }
         }
@@ -331,14 +302,6 @@ public class Map {
             return itemToString(item);
         }
 
-        public void setX(int x) {this.x += x;}
-
-        public void setY(int y) {this.y += y;} 
-
-        public int getX() {return this.x;}
-
-        public int getY() {return this.y;}
-
         public boolean addWeightPossible(double weight) {
             if(this.currentWeight < this.maxWeight) {
                 this.currentWeight += weight;
@@ -347,6 +310,32 @@ public class Map {
                 return false;
             }
         }
+        
+        public String itemToString(Item item) {
+            return "Item: \n"+ "   "+item.Type + ": " + String.valueOf(item.Effect) + "\n    Weight: " + String.valueOf(item.Weight) + "\n";
+        }
+
+        public void addToBackLog() {
+            this.xBackLog.add(this.x);
+            this.yBackLog.add(this.y);
+            this.floorBackLog.add(this.currentFloor);
+        }
+        
+        public void setX(int x) {this.x += x;}
+
+        public void setY(int y) {this.y += y;} 
+
+        public int getX() {return this.x;}
+
+        public int getY() {return this.y;}
+        
+        public void hardSetPlayerX(int x) {this.x = x;}
+
+        public void hardSetPlayerY(int y) {this.y = y;}
+
+        public void setCurrentFloor(int floor) {this.currentFloor += floor;}
+
+        public int getCurrentFloor() {return this.currentFloor;}
     }
 
     public class Attack {
@@ -386,6 +375,24 @@ public class Map {
         double x = Math.round(((double)(Math.random()*((max-min)+1))+min) * 10)/10.0;
         return x;
     }
+    
+    public void setPlayerX(int x) {this.player.setX(x);}
+
+    public void setPlayerY(int y) {this.player.setY(y);}
+
+    public int getPlayerX() {return this.player.getX();} 
+
+    public int getPlayerY() {return this.player.getY();}
+
+    public int getCurrentFloor() {return this.player.getCurrentFloor();}
+
+    public void hardSetPlayerX(int x) {this.player.hardSetPlayerX(x);}
+
+    public void hardSetPlayerY(int y) {this.player.hardSetPlayerY(y);}
+
+    public void addToBackLog() {this.player.addToBackLog();}
+
+    public void back() {this.player.back();}
 }
 
 /*public class Map {

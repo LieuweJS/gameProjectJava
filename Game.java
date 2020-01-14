@@ -12,7 +12,6 @@ public class Game extends JFrame {
         setSize(750, 750);
         setLayout(new BorderLayout());
         textField = new JTextField(40);
-        //textField.setBackground(null);
         final Canv canvas = new Canv(map);
         add(canvas, BorderLayout.CENTER);
         add(textField, BorderLayout.PAGE_END);
@@ -61,7 +60,6 @@ public class Game extends JFrame {
             }
             drawImage.setColor(Color.red);
             drawImage.fillOval(map.getPlayerX(),map.getPlayerY(), 50, 50);
-            //System.out.println(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
         }
 
         public void updateGraphics(int length, int width) {
