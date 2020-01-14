@@ -9,7 +9,7 @@ public class Map {
         this.addToBackLog();
         String[][] chamber1 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"N","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"N","O","C","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -113,41 +113,45 @@ public class Map {
 
     }
 
-    public void setPlayerX(int x) {
-        this.player.setX(x);
-    }
+    public void setPlayerX(int x) {this.player.setX(x);}
+
+    public void setPlayerY(int y) {this.player.setY(y);}
+
+    public int getPlayerX() {return this.player.getX();} 
+
+    public int getPlayerY() {return this.player.getY();}
 
     public int getCurrentFloor() {return this.player.getCurrentFloor();}
-
-    public void setPlayerY(int y) {
-        this.player.setY(y);
-    }
-
-    public int getPlayerX() {
-        return this.player.getX();
-    } 
-
-    public int getPlayerY() {
-        return this.player.getY();
-    }
 
     public void hardSetPlayerX(int x) {this.player.hardSetPlayerX(x);}
 
     public void hardSetPlayerY(int y) {this.player.hardSetPlayerY(y);}
 
+    public void addToBackLog() {this.player.addToBackLog();}
+
+    public void back() {this.player.back();}
+
     public void compare(String input, String GroundType) {
         if(input.equals("go left")) {
-            this.setPlayerX(-50);
-            this.addToBackLog();
+            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)-1).equals("Wall")) {
+                this.setPlayerX(-50);
+                this.addToBackLog();
+            }
         } else if(input.equals("go right")) {
-            this.setPlayerX(50);
-            this.addToBackLog();
+            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)+1).equals("Wall")) {
+                this.setPlayerX(50);
+                this.addToBackLog();
+            }
         } else if(input.equals("go up")) {
-            this.setPlayerY(-50);
-            this.addToBackLog();
+            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)-1,this.getPlayerX()/50).equals("Wall")) {
+                this.setPlayerY(-50);
+                this.addToBackLog();
+            }
         } else if(input.equals("go down")) {
-            this.setPlayerY(+50);
-            this.addToBackLog();
+            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)+1,this.getPlayerX()/50).equals("Wall")) {
+                this.setPlayerY(+50);
+                this.addToBackLog();
+            }
         } else if(input.equals("quit")) {
             System.exit(0);
         } else if(input.equals("back")) {
@@ -164,16 +168,15 @@ public class Map {
                 this.hardSetPlayerX(50);
                 this.hardSetPlayerY(50);
             }
+        } else if(input.equals("open chest")) {
+            if(GroundType.equals("Chest")) {
+                //givePlayerRandomItem();
+                //this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
+                //open chest and set to empty
+            }
         }
     }
 
-    public void addToBackLog() {
-        this.player.addToBackLog();
-    }
-
-    public void back() {
-        this.player.back();
-    }
     public class Chamber {
         int ChamberNumber;
         // ArrayList<Enemy> enemies = new ArrayList<Enemy>();
@@ -200,24 +203,41 @@ public class Map {
             }
         }
 
-        public String getGroundType(int i, int j) {return this.chamber.get(i).get(j).getGroundType();}
-
-        public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
         public class GroundType {
             String GroundType;
             Color color;
+            boolean empty;
             public GroundType(String type, Color color) {
                 this.GroundType = type;
                 this.color = color;
+                this.empty = false;
+            }
+
+            public void setChestToEmpty() {
+                this.empty = true;
             }
 
             public String getGroundType() {return this.GroundType;}
 
+            public boolean isChestEmpty() {return empty;}
+
             public Color getColor() {return this.color;}
         }
+
+        public String getGroundType(int i, int j) {return this.chamber.get(i).get(j).getGroundType();}
+
+        public void setChestToEmpty(int i, int j) {this.chamber.get(i).get(j).setChestToEmpty();}
+
+        //public boolean isChestEmpty(int i, int j) {this.chamber.get(i).get(j).isChestEmpty();}
+
+        public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
     }
 
-    public void givePlayerRandomItem() {}
+    public void givePlayerRandomItem(int i, int j) {
+        if(this.chamberList.get(this.player.getCurrentFloor()).chamber.get(i).get(j).isChestEmpty() == false) {
+            this.player.addToInventory();
+        }
+    }
 
     public class Player {
         int x;
@@ -242,13 +262,9 @@ public class Map {
 
         public void hardSetPlayerY(int y) {this.y = y;}
 
-        public void setCurrentFloor(int floor) {
-            this.currentFloor += floor;
-        }
+        public void setCurrentFloor(int floor) {this.currentFloor += floor;}
 
-        public int getCurrentFloor() {
-            return this.currentFloor;
-        }
+        public int getCurrentFloor() {return this.currentFloor;}
 
         public void addToBackLog() {
             this.xBackLog.add(this.x);
@@ -256,10 +272,19 @@ public class Map {
         }
 
         public void back() {
-            this.xBackLog.remove(xBackLog.size()-1);
-            this.yBackLog.remove(yBackLog.size()-1);
-            this.x = xBackLog.get(xBackLog.size()-1);
-            this.y = yBackLog.get(yBackLog.size()-1);
+            //System.out.println(Arrays.deepToString(this.xBackLog.toArray()));
+            //System.out.println(Arrays.toString(this.yBackLog.toArray()));
+            if(this.xBackLog.size() != 0 && this.yBackLog.size() != 0) {
+                if(this.xBackLog.size() == 1 && this.yBackLog.size() == 1) {
+                    this.x = xBackLog.get(0);
+                    this.y = yBackLog.get(0);
+                } else {  
+                    this.xBackLog.remove(xBackLog.size()-1);
+                    this.yBackLog.remove(yBackLog.size()-1);
+                    this.x = xBackLog.get(xBackLog.size()-1);
+                    this.y = yBackLog.get(yBackLog.size()-1);
+                }
+            }
         }
 
         public void addToInventory() {
@@ -269,13 +294,9 @@ public class Map {
             }
         }
 
-        public void setX(int x) {
-            this.x += x;
-        }
+        public void setX(int x) {this.x += x;}
 
-        public void setY(int y) {
-            this.y += y;
-        } 
+        public void setY(int y) {this.y += y;} 
 
         public int getX() {return this.x;}
 
@@ -290,32 +311,6 @@ public class Map {
             }
         }
     }
-
-    /*  public class Enemy {
-    String Name;
-    int Health;
-    ArrayList<Attack> Attacks = new ArrayList<Attack>();
-    public Enemy(int Health, int EnemyType) {
-    //tougher enemies are less likely to use ultimate attacks (the 40 damage ones)
-    if(EnemyType == 1) {
-    this.Name = "IT Helpdesk Employee";
-    this.Health = 200;
-    this.Attacks.add(new Attack("Blackmail Opponent", 20), new Attack("Hack Opponent", 30), new Attack("Remote Delete Opponent Files", 40));
-    } else if(EnemyType == 2) {
-    this.Name = "jenator";
-    this.Health = 150;
-    this.Attacks.add(new Attack("", 20), new Attack("", 30), new Attack("", 40));
-    } else if(EnemyType == 3) {
-    this.Name = "cafeteria employee";
-    this.Health = 300;
-    this.Attacks.add(new Attack("Coffee Break", 20), new Attack("Lunch Throw", 30), new Attack("Food Frenzy", 40));
-    } else if(EnemyType == 4) {
-    this.Name = "Manager";
-    this.Health = 200;
-    this.Attacks.add(new Attack("Employee Review", 20), new Attack("Forced Overtime", 30), new Attack("You're Fired!", 40));
-    }
-    }
-    }*/
 
     public class Attack {
         String Name; 
@@ -473,5 +468,30 @@ currX = currX+this.chambers.get(totalIndex).getChamberXLen();
 totalIndex++;
 //System.out.println(this.chambers.get(totalIndex).getLevelNr());    
 } 
+}
+}*/
+/*  public class Enemy {
+String Name;
+int Health;
+ArrayList<Attack> Attacks = new ArrayList<Attack>();
+public Enemy(int Health, int EnemyType) {
+//tougher enemies are less likely to use ultimate attacks (the 40 damage ones)
+if(EnemyType == 1) {
+this.Name = "IT Helpdesk Employee";
+this.Health = 200;
+this.Attacks.add(new Attack("Blackmail Opponent", 20), new Attack("Hack Opponent", 30), new Attack("Remote Delete Opponent Files", 40));
+} else if(EnemyType == 2) {
+this.Name = "jenator";
+this.Health = 150;
+this.Attacks.add(new Attack("", 20), new Attack("", 30), new Attack("", 40));
+} else if(EnemyType == 3) {
+this.Name = "cafeteria employee";
+this.Health = 300;
+this.Attacks.add(new Attack("Coffee Break", 20), new Attack("Lunch Throw", 30), new Attack("Food Frenzy", 40));
+} else if(EnemyType == 4) {
+this.Name = "Manager";
+this.Health = 200;
+this.Attacks.add(new Attack("Employee Review", 20), new Attack("Forced Overtime", 30), new Attack("You're Fired!", 40));
+}
 }
 }*/

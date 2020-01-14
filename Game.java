@@ -55,7 +55,7 @@ public class Game extends JFrame {
             }
             drawImage.setColor(Color.red);
             drawImage.fillOval(map.getPlayerX(),map.getPlayerY(), 50, 50);
-            System.out.println(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
+            //System.out.println(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
         }
 
         public void updateGraphics(int length, int width) {
