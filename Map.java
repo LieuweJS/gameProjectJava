@@ -1,5 +1,6 @@
 import java.util.*;
 import java.awt.Color;
+import javax.swing.*;
 
 public class Map {
     Player player;
@@ -131,49 +132,64 @@ public class Map {
 
     public void back() {this.player.back();}
 
-    public void compare(String input, String GroundType) {
+    public void compare(String input, String GroundType, JTextArea textArea) {
         if(input.equals("go left")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)-1).equals("Wall")) {
                 this.setPlayerX(-50);
                 this.addToBackLog();
+                textArea.setText("Command 'go left' recognised: you have moved to the left.\n" + textArea.getText());
             }
         } else if(input.equals("go right")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)+1).equals("Wall")) {
                 this.setPlayerX(50);
                 this.addToBackLog();
+                textArea.setText("Command 'go right' recognised: you have moved to the right.\n" + textArea.getText());
             }
         } else if(input.equals("go up")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)-1,this.getPlayerX()/50).equals("Wall")) {
                 this.setPlayerY(-50);
                 this.addToBackLog();
+                textArea.setText("Command 'go up' recognised: you have moved up.\n" + textArea.getText());
             }
         } else if(input.equals("go down")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)+1,this.getPlayerX()/50).equals("Wall")) {
                 this.setPlayerY(+50);
                 this.addToBackLog();
+                textArea.setText("Command 'go down' recognised: you have moved down.\n" + textArea.getText());
             }
         } else if(input.equals("quit")) {
+            textArea.setText("Command 'quit' recognised: the game is shutting down.\n" + textArea.getText());
             System.exit(0);
         } else if(input.equals("back")) {
             this.back();
+            textArea.setText("Command 'back' recognised: you have moved back to your previous location.\n" + textArea.getText());
         } else if(input.equals("next floor")) {
+            textArea.setText("Command 'next floor' recognised: command not executed, you are not standing on a next floor door block.\n" + textArea.getText());
             if(GroundType.equals("NextFloorDoor")) {
                 this.player.setCurrentFloor(1);
                 this.hardSetPlayerX(50);
                 this.hardSetPlayerY(50);
+                textArea.setText("Command 'next floor' recognised: you have moved to the next floor.\n" + textArea.getText());
             }    
         } else if(input.equals("previous floor")) {
+            textArea.setText("Command 'previous floor' recognised: command not executed, you are not standing on a previous floor door block.\n" + textArea.getText());
             if(GroundType.equals("PreviousFloorDoor")) {
                 this.player.setCurrentFloor(-1);
                 this.hardSetPlayerX(50);
                 this.hardSetPlayerY(50);
+                textArea.setText("Command 'previous floor' recognised: you have moved to the previous floor.\n" + textArea.getText());
             }
         } else if(input.equals("open chest")) {
             if(GroundType.equals("Chest")) {
                 //givePlayerRandomItem();
                 //this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
                 //open chest and set to empty
+                textArea.setText("Command 'open chest' recognised: you have opened the chest, the contents of the chest are:\n" + textArea.getText());
             }
+        } else if(input.equals("open inventory")) {
+            textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
+        } else {
+            textArea.setText("Command not recognised.\n" + textArea.getText());
         }
     }
 

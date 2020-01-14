@@ -16,15 +16,21 @@ public class Game extends JFrame {
         final Canv canvas = new Canv(map);
         add(canvas, BorderLayout.CENTER);
         add(textField, BorderLayout.PAGE_END);
+        JTextArea textArea = new JTextArea(5, 30);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setPreferredSize(new Dimension(600, 110));
+        add(scrollPane, BorderLayout.EAST);
         textField.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     String input = textField.getText();
-                    map.compare(input, map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50));
+                    map.compare(input, map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50), textArea);
                     canvas.updateGraphics(50, 50);
                     textField.setText("");
                     repaint();
                 }
             });
+ 
         pack();
         setVisible(true);
     }
