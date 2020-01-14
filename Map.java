@@ -132,6 +132,12 @@ public class Map {
 
     public void back() {this.player.back();}
 
+    public void printInventory(JTextArea textArea) {
+        for(int i = 0; i < this.player.inventory.size(); i++) {
+            textArea.setText(this.player.itemToString(this.player.inventory.get(i)) + textArea.getText());
+        }
+    }
+
     public void compare(String input, String GroundType, JTextArea textArea) {
         if(input.equals("go left")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)-1).equals("Wall")) {
@@ -181,12 +187,20 @@ public class Map {
             }
         } else if(input.equals("open chest")) {
             if(GroundType.equals("Chest")) {
-                //givePlayerRandomItem();
-                //this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
-                //open chest and set to empty
-                textArea.setText("Command 'open chest' recognised: you have opened the chest, the contents of the chest are:\n" + textArea.getText());
+                if( this.chamberList.get(this.getCurrentFloor()).isChestEmpty(this.getPlayerY()/50,this.getPlayerX()/50) == false) {
+                    String item = this.player.addToInventory();
+                    this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
+                    //open chest and set to empty
+                    textArea.setText(item + textArea.getText());
+                    textArea.setText("Command 'open chest' recognised: you have opened the chest, the contents of the chest are:\n" + textArea.getText());
+                } else {
+                    textArea.setText("Command 'open chest' recognised: this chest is already empty.\n" + textArea.getText());
+                }
+            } else {
+                textArea.setText("Command 'open chest' recognised: command not executed, you are not standing on a chest block.\n" + textArea.getText());
             }
         } else if(input.equals("open inventory")) {
+            this.printInventory(textArea);
             textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
         } else {
             textArea.setText("Command not recognised.\n" + textArea.getText());
@@ -244,7 +258,7 @@ public class Map {
 
         public void setChestToEmpty(int i, int j) {this.chamber.get(i).get(j).setChestToEmpty();}
 
-        //public boolean isChestEmpty(int i, int j) {this.chamber.get(i).get(j).isChestEmpty();}
+        public boolean isChestEmpty(int i, int j) {return this.chamber.get(i).get(j).isChestEmpty();}
 
         public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
     }
@@ -272,6 +286,12 @@ public class Map {
             this.maxWeight = 100.0;
             this.currentWeight = 0.0;
             this.currentFloor = 0;
+            this.addToInventory();
+            this.addToInventory();
+        }
+
+        public String itemToString(Item item) {
+            return "Item: \n"+ "   "+item.Type + ": " + String.valueOf(item.Effect) + "\n    Weight: " + String.valueOf(item.Weight) + "\n";
         }
 
         public void hardSetPlayerX(int x) {this.x = x;}
@@ -303,11 +323,12 @@ public class Map {
             }
         }
 
-        public void addToInventory() {
+        public String addToInventory() {
             Item item = new Item();
             if(addWeightPossible(item.getWeight()) == true) {
                 this.inventory.add(item);
             }
+            return itemToString(item);
         }
 
         public void setX(int x) {this.x += x;}
@@ -338,29 +359,31 @@ public class Map {
     }
 
     public class Item {
-        int Damage;
-        int Healing;
-        int Value;
-        int Weight;
+        String Type;
+        int Effect;
+        double Weight;
         public Item() {
             if(getRandomIntegerBetweenRange(0,1) == 1) {
-                this.Damage = getRandomIntegerBetweenRange(20,35);
-                this.Healing = 0;
-                this.Value = getRandomIntegerBetweenRange(50,100);
-                this.Weight = getRandomIntegerBetweenRange(0,2) + getRandomIntegerBetweenRange(0,10)/10;
+                this.Type = "Damage";
+                this.Effect = getRandomIntegerBetweenRange(20,35);
+                this.Weight = getRandomDoubleBetweenRange(1.0,2.0);
             } else {
-                this.Damage = 0;
-                this.Healing = getRandomIntegerBetweenRange(20,35);
-                this.Value = getRandomIntegerBetweenRange(50,100);
-                this.Weight = getRandomIntegerBetweenRange(0,2) + getRandomIntegerBetweenRange(0,10)/10;
+                this.Type = "Healing";
+                this.Effect = getRandomIntegerBetweenRange(20,35);
+                this.Weight = getRandomDoubleBetweenRange(1.0, 2.0);
             }
         }
 
-        public int getWeight() {return this.Weight;}
+        public double getWeight() {return this.Weight;}
     }
 
     public static int getRandomIntegerBetweenRange(int min, int max){
         int x = (int)(Math.random()*((max-min)+1))+min;
+        return x;
+    }
+
+    public static double getRandomDoubleBetweenRange(double min, double max){
+        double x = Math.round(((double)(Math.random()*((max-min)+1))+min) * 10)/10.0;
         return x;
     }
 }

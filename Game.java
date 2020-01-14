@@ -19,7 +19,7 @@ public class Game extends JFrame {
         JTextArea textArea = new JTextArea(5, 30);
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(600, 110));
+        scrollPane.setPreferredSize(new Dimension(700, 0));
         add(scrollPane, BorderLayout.EAST);
         textField.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
