@@ -11,15 +11,15 @@ public class Map {
         String[][] chamber1 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","W","O","W","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","W","O","O","O","O","O","W","C","W"},
+                {"W","O","O","O","O","O","W","O","O","O","E","O","W","C","W"},
                 {"W","O","O","O","O","O","W","W","W","W","O","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","W","O","O","O","O","O","O","O","O","W","W","W"},
-                {"W","O","O","W","O","O","O","O","O","O","O","W","W","W","W"},
+                {"W","O","E","W","O","O","O","O","O","O","O","O","W","W","W"},
+                {"W","O","O","W","O","O","O","O","O","E","O","W","W","W","W"},
                 {"W","O","O","W","O","O","O","O","O","O","O","W","W","W","W"},
                 {"W","O","O","W","O","O","O","O","O","O","W","W","W","W","W"},
                 {"W","C","O","W","O","O","O","O","O","O","W","W","W","W","W"},
@@ -38,20 +38,20 @@ public class Map {
                 {"W","W","O","O","O","O","W","O","O","O","O","O","O","O","W"},
                 {"W","O","W","O","W","O","O","W","O","O","O","O","O","O","W"},
                 {"W","O","O","O","W","O","O","O","W","O","O","O","O","O","W"},
-                {"W","O","O","O","W","O","O","O","W","O","O","O","O","O","W"},
+                {"W","O","O","O","W","O","O","C","W","O","O","O","O","O","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber3 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
-                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","W","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","W","O","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","W","O","W","W"},
+                {"W","P","O","O","O","O","O","O","O","O","W","O","O","N","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","W","O","W","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","W","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","W","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -206,11 +206,15 @@ public class Map {
         } else {
             textArea.setText("Command not recognised.\n" + textArea.getText());
         }
+        if(GroundType.equals("Enemy")) {
+            //if( this.chamberList.get(this.getCurrentFloor()).isEnemyDead(this.getPlayerY()/50,this.getPlayerX()/50) == false) {
+            //}
+        }
     }
 
     public class Chamber {
         int ChamberNumber;
-        // ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
         // ArrayList<Item> items = new ArrayList<Item>();
         ArrayList<ArrayList<GroundType>> chamber = new ArrayList<>(15);
         String floorDescription;
@@ -220,17 +224,18 @@ public class Map {
                 chamber.add(new ArrayList());
                 for(int j = 0; j < 15; j++) {
                     if(chamberMap[i][j] == "W") {
-                        chamber.get(i).add(new GroundType("Wall", Color.GRAY));
+                        chamber.get(i).add(new GroundType("Wall", Color.GRAY, 0));
                     } else if(chamberMap[i][j] == "O") {
-                        chamber.get(i).add(new GroundType("Open", Color.WHITE));
+                        chamber.get(i).add(new GroundType("Open", Color.WHITE, 0));
                     } else if(chamberMap[i][j] == "C") {
-                        chamber.get(i).add(new GroundType("Chest", Color.YELLOW));
+                        chamber.get(i).add(new GroundType("Chest", Color.YELLOW, 0));
                     } else if(chamberMap[i][j] == "P") {
-                        chamber.get(i).add(new GroundType("PreviousFloorDoor",Color.BLACK));
+                        chamber.get(i).add(new GroundType("PreviousFloorDoor",Color.BLACK, 0));
                     } else if(chamberMap[i][j] == "N") {
-                        chamber.get(i).add(new GroundType("NextFloorDoor",Color.GREEN));
+                        chamber.get(i).add(new GroundType("NextFloorDoor",Color.GREEN, 0));
                     } else if(chamberMap[i][j] == "E") {
-                        chamber.get(i).add(new GroundType("Enemy",Color.RED));
+                        chamber.get(i).add(new GroundType("Enemy",Color.RED, enemies.size() + 1));
+                        enemies.add(new Enemy(4));
                     }
                 }
             }
@@ -240,10 +245,12 @@ public class Map {
             String GroundType;
             Color color;
             boolean empty;
-            public GroundType(String type, Color color) {
+            int EnemyNumber;
+            public GroundType(String type, Color color, int numb) {
                 this.GroundType = type;
                 this.color = color;
                 this.empty = false;
+                this.EnemyNumber = numb;
             }
 
             public void setChestToEmpty() {
@@ -252,8 +259,8 @@ public class Map {
 
             public String getGroundType() {return this.GroundType;}
 
-            public boolean isChestEmpty() {return empty;}
-
+            public boolean isChestEmpty() {return this.empty;}
+          
             public Color getColor() {return this.color;}
         }
 
@@ -262,9 +269,9 @@ public class Map {
         public void setChestToEmpty(int i, int j) {this.chamber.get(i).get(j).setChestToEmpty();}
 
         public boolean isChestEmpty(int i, int j) {return this.chamber.get(i).get(j).isChestEmpty();}
-
+       
         public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
-        
+
         public String getFloorDescription() {return this.floorDescription;}
     }
 
@@ -357,7 +364,7 @@ public class Map {
         public void setCurrentFloor(int floor) {this.currentFloor += floor;}
 
         public int getCurrentFloor() {return this.currentFloor;}
-        
+
         public int getMovesLeft() {return this.movesLeft;}
     }
 
@@ -387,6 +394,96 @@ public class Map {
         }
 
         public double getWeight() {return this.Weight;}
+    }
+
+    public class Enemy {
+        String Name;
+        int Health;
+        Attack currentAttack;
+        Random rand = new Random();
+        int roll;
+        ArrayList<Attack> Attacks = new ArrayList<Attack>();
+        public Enemy(int EnemyType) {
+            //tougher enemies are less likely to use ultimate attacks (the 40 damage ones)
+            if(EnemyType == 1 || EnemyType == 2) {
+                this.Name = "IT Helpdesk Employee";
+                this.Health = 200;
+                this.Attacks.add(new Attack("Blackmail Opponent", 20));
+                this.Attacks.add(new Attack("Hack Opponent", 30));
+                this.Attacks.add(new Attack("Remote Delete Opponent Files", 40));
+                if (roll <= 50) {
+                    currentAttack = Attacks.get(0);
+                }
+                else if (roll > 50 && roll <= 80) {
+                    currentAttack = Attacks.get(1);
+                }
+                else if (roll > 80) {
+                    currentAttack = Attacks.get(2);
+                }
+
+            } else if(EnemyType == 3 || EnemyType == 4) {
+                this.Name = "Janitor";
+                this.Health = 150;
+                Attacks.add(new Attack("Wet floor", 20));
+                Attacks.add(new Attack("placeholder 2", 30));
+                Attacks.add(new Attack("placeholder 3", 40));
+                if (roll <= 40) {
+                    currentAttack = Attacks.get(0);
+                }
+                else if (roll > 40 && roll <= 70) {
+                    currentAttack = Attacks.get(1);
+                }
+                else if (roll > 70) {
+                    currentAttack = Attacks.get(2);
+                }
+
+            } else if(EnemyType == 5 || EnemyType == 6) {
+                this.Name = "Cafeteria employee";
+                this.Health = 300;
+                this.Attacks.add(new Attack("Coffee Break", 20));
+                this.Attacks.add(new Attack("Lunch Throw", 30));
+                this.Attacks.add(new Attack("Food Frenzy", 40));
+                if (roll <= 60) {
+                    currentAttack = Attacks.get(0);
+                }
+                else if (roll > 60 && roll <= 85) {
+                    currentAttack = Attacks.get(1);
+                }
+                else if (roll > 85) {
+                    currentAttack = Attacks.get(2);
+                }
+
+            } else if(EnemyType == 7) {
+                this.Name = "Manager";
+                this.Health = 200;
+                this.Attacks.add(new Attack("Employee Review", 25));
+                this.Attacks.add(new Attack("Forced Overtime", 35));
+                this.Attacks.add(new Attack("You're Fired!", 45));
+                if (roll <= 70) {
+                    currentAttack = Attacks.get(0);
+                }
+                else if (roll > 70 && roll <= 90) {
+                    currentAttack = Attacks.get(1);
+                }
+                else if (roll > 90) {
+                    currentAttack = Attacks.get(2);
+                }
+
+            }
+        }
+
+        /*
+        public void enemyAttack() {
+        int newHealth = Player.getHealth() - currentAttack.Damage;
+        switch (roll) {
+        case 1:
+        break;
+        case 2:
+        break;
+        case 3:
+        break;
+        }
+         */
     }
 
     public static int getRandomIntegerBetweenRange(int min, int max){
