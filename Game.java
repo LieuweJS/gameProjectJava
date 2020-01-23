@@ -28,13 +28,14 @@ public class Game extends JFrame {
                     textField.setText("");
                     repaint();
                     if(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50).equals("Enemy")) {
+                        if(map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health <= 0) {}
                             if(map.player.inCombat == false) {
                                 textArea.setText("Enemy Engaged!\n" + textArea.getText());
-                            }
-                            map.player.inCombat = true;
-                            Combat fight = new Combat(textArea);
+                                map.player.inCombat = true;
+                            }                         
                             if(input.equals("use attack")) {
-                                textArea.setText(fight.playerAttack() + textArea.getText());
+                                Combat combat = new Combat(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50));
+                                textArea.setText(combat.playerAttack() + textArea.getText());
                             }
                         }
                     
