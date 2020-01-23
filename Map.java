@@ -10,13 +10,13 @@ public class Map {
         this.addToBackLog();
         String[][] chamber1 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","W","O","W","O","O","O","O","O","W"},
+                {"W","O","C","C","C","O","W","O","W","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","W","O","O","O","E","O","W","C","W"},
                 {"W","O","O","O","O","O","W","W","W","W","O","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","O","E","O","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","E","W","O","O","O","O","O","O","O","O","W","W","W"},
                 {"W","O","O","W","O","O","O","O","O","E","O","W","W","W","W"},
@@ -121,100 +121,121 @@ public class Map {
     }
 
     public void compare(String input, String GroundType, JTextArea textArea) {
-        if(input.equals("go left")) {
-            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)-1).equals("Wall")) {
-                this.setPlayerX(-50);
-                this.addToBackLog();
-                textArea.setText("Command 'go left' recognised: you have moved to the left.\n" + textArea.getText());
-                this.player.movesLeft -= 1;
-            }
-        } else if(input.equals("go right")) {
-            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)+1).equals("Wall")) {
-                this.setPlayerX(50);
-                this.addToBackLog();
-                textArea.setText("Command 'go right' recognised: you have moved to the right.\n" + textArea.getText());
-                this.player.movesLeft -= 1;
-            }
-        } else if(input.equals("go up")) {
-            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)-1,this.getPlayerX()/50).equals("Wall")) {
-                this.setPlayerY(-50);
-                this.addToBackLog();
-                textArea.setText("Command 'go up' recognised: you have moved up.\n" + textArea.getText());
-                this.player.movesLeft -= 1;
-            }
-        } else if(input.equals("go down")) {
-            if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)+1,this.getPlayerX()/50).equals("Wall")) {
-                this.setPlayerY(+50);
-                this.addToBackLog();
-                textArea.setText("Command 'go down' recognised: you have moved down.\n" + textArea.getText());
-                this.player.movesLeft -= 1;
-            }
-        } else if(input.equals("quit")) {
-            textArea.setText("Command 'quit' recognised: the game is shutting down.\n" + textArea.getText());
-            System.exit(0);
-        } else if(input.equals("back")) {
-            this.back();
-            textArea.setText("Command 'back' recognised: you have moved back to your previous location.\n" + textArea.getText());
-            this.player.movesLeft -= 1;
-        } else if(input.equals("next floor")) {
-            textArea.setText("Command 'next floor' recognised: command not executed, you are not standing on a next floor door block.\n" + textArea.getText());
-            if(GroundType.equals("NextFloorDoor")) {
-                this.player.setCurrentFloor(1);
-                this.hardSetPlayerX(50);
-                this.hardSetPlayerY(350);
-                this.player.addToBackLog();
-                textArea.setText("Command 'next floor' recognised: you have moved to the next floor.\n" + textArea.getText());
-                textArea.setText(this.chamberList.get(this.player.getCurrentFloor()).getFloorDescription() + "\n" + textArea.getText());
-                this.player.movesLeft -= 1;
-            }    
-        } else if(input.equals("previous floor")) {
-            textArea.setText("Command 'previous floor' recognised: command not executed, you are not standing on a previous floor door block.\n" + textArea.getText());
-            if(GroundType.equals("PreviousFloorDoor")) {
-                this.player.setCurrentFloor(-1);
-                this.hardSetPlayerX(50);
-                this.hardSetPlayerY(350);
-                this.player.addToBackLog();
-                textArea.setText("Command 'previous floor' recognised: you have moved to the previous floor.\n" + textArea.getText());
-                textArea.setText(this.chamberList.get(this.player.getCurrentFloor()).getFloorDescription() + "\n" + textArea.getText());
-                this.player.movesLeft -= 1;
-            }
-        } else if(input.equals("open chest")) {
-            if(GroundType.equals("Chest")) {
-                if( this.chamberList.get(this.getCurrentFloor()).isChestEmpty(this.getPlayerY()/50,this.getPlayerX()/50) == false) {
-                    int numberOfItemsInChest = getRandomIntegerBetweenRange(1,3); 
-                    for(int i = 0; i < numberOfItemsInChest; i++) {
-                        String item = this.player.addToInventory();
-                        textArea.setText(item + textArea.getText());
-                    } 
-                    this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
-                    textArea.setText("Command 'open chest' recognised: you have opened the chest, the contents of the chest are:\n" + textArea.getText());
-                } else {
-                    textArea.setText("Command 'open chest' recognised: this chest is already empty.\n" + textArea.getText());
+        if(this.player.inCombat == false) {
+            if(input.equals("go left")) {
+                if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)-1).equals("Wall")) {
+                    this.setPlayerX(-50);
+                    this.addToBackLog();
+                    textArea.setText("Command 'go left' recognised: you have moved to the left.\n" + textArea.getText());
+                    this.player.movesLeft -= 1;
+
                 }
+            } else if(input.equals("go right")) {
+                if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)+1).equals("Wall")) {
+                    this.setPlayerX(50);
+                    this.addToBackLog();
+                    textArea.setText("Command 'go right' recognised: you have moved to the right.\n" + textArea.getText());
+                    this.player.movesLeft -= 1;
+
+                }
+            } else if(input.equals("go up")) {
+                if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)-1,this.getPlayerX()/50).equals("Wall")) {
+                    this.setPlayerY(-50);
+                    this.addToBackLog();
+                    textArea.setText("Command 'go up' recognised: you have moved up.\n" + textArea.getText());
+                    this.player.movesLeft -= 1;
+
+                }
+            } else if(input.equals("go down")) {
+                if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)+1,this.getPlayerX()/50).equals("Wall")) {
+                    this.setPlayerY(+50);
+                    this.addToBackLog();
+                    textArea.setText("Command 'go down' recognised: you have moved down.\n" + textArea.getText());
+                    this.player.movesLeft -= 1;
+
+                }
+            } else if(input.equals("quit")) {
+                textArea.setText("Command 'quit' recognised: the game is shutting down.\n" + textArea.getText());
+                System.exit(0);
+            } else if(input.equals("back")) {
+                this.back();
+                textArea.setText("Command 'back' recognised: you have moved back to your previous location.\n" + textArea.getText());
+                this.player.movesLeft -= 1;
+            } else if(input.equals("next floor")) {
+                textArea.setText("Command 'next floor' recognised: command not executed, you are not standing on a next floor door block.\n" + textArea.getText());
+                if(GroundType.equals("NextFloorDoor")) {
+                    this.player.setCurrentFloor(1);
+                    this.hardSetPlayerX(50);
+                    this.hardSetPlayerY(350);
+                    this.player.addToBackLog();
+                    textArea.setText("Command 'next floor' recognised: you have moved to the next floor.\n" + textArea.getText());
+                    textArea.setText(this.chamberList.get(this.player.getCurrentFloor()).getFloorDescription() + "\n" + textArea.getText());
+                    this.player.movesLeft -= 1;
+                }    
+            } else if(input.equals("previous floor")) {
+                textArea.setText("Command 'previous floor' recognised: command not executed, you are not standing on a previous floor door block.\n" + textArea.getText());
+                if(GroundType.equals("PreviousFloorDoor")) {
+                    this.player.setCurrentFloor(-1);
+                    this.hardSetPlayerX(50);
+                    this.hardSetPlayerY(350);
+                    this.player.addToBackLog();
+                    textArea.setText("Command 'previous floor' recognised: you have moved to the previous floor.\n" + textArea.getText());
+                    textArea.setText(this.chamberList.get(this.player.getCurrentFloor()).getFloorDescription() + "\n" + textArea.getText());
+                    this.player.movesLeft -= 1;
+                }
+            } else if(input.equals("open chest")) {
+                if(GroundType.equals("Chest")) {
+                    if( this.chamberList.get(this.getCurrentFloor()).isChestEmpty(this.getPlayerY()/50,this.getPlayerX()/50) == false) {
+                        int numberOfItemsInChest = getRandomIntegerBetweenRange(1,3); 
+                        for(int i = 0; i < numberOfItemsInChest; i++) {
+                            String item = this.player.addToInventory();
+                            textArea.setText(item + textArea.getText());
+                        } 
+                        this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
+                        textArea.setText("Command 'open chest' recognised: you have opened the chest, the contents of the chest are:\n" + textArea.getText());
+                    } else {
+                        textArea.setText("Command 'open chest' recognised: this chest is already empty.\n" + textArea.getText());
+                    }
+                } else {
+                    textArea.setText("Command 'open chest' recognised: command not executed, you are not standing on a chest block.\n" + textArea.getText());
+                }
+            } 
+            else if(input.equals("open inventory")) {
+                this.printInventory(textArea);
+                textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
+            } else if(input.equals("clear console")) {
+                textArea.setText("");
+            } else if(input.equals("about")) {
+                textArea.setText("lorum ipsum\n" + textArea.getText());
+            } else if(input.equals("moves left")) {
+                textArea.setText("command recognised: moves left: " + this.player.getMovesLeft() + "\n" + textArea.getText());
             } else {
-                textArea.setText("Command 'open chest' recognised: command not executed, you are not standing on a chest block.\n" + textArea.getText());
+                textArea.setText("Command not recognised.\n" + textArea.getText());
             }
-        } else if(input.equals("open inventory")) {
-            this.printInventory(textArea);
-            textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
-        } else if(input.equals("clear console")) {
-            textArea.setText("");
-        } else if(input.equals("about")) {
-            textArea.setText("lorum ipsum\n" + textArea.getText());
-        } else if(input.equals("moves left")) {
-            textArea.setText("command recognised: moves left: " + this.player.getMovesLeft() + "\n" + textArea.getText());
         } else {
-            textArea.setText("Command not recognised.\n" + textArea.getText());
+            if(input.equals("open inventory")) {
+                this.printInventory(textArea);
+                textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
+            } else if(input.equals("clear console")) {
+                textArea.setText("");
+            } else if(input.equals("about")) {
+                textArea.setText("lorum ipsum\n" + textArea.getText());
+            } else if(input.equals("moves left")) {
+                textArea.setText("command recognised: moves left: " + this.player.getMovesLeft() + "\n" + textArea.getText());
+            }  else if(input.equals("quit")) {
+                textArea.setText("Command 'quit' recognised: the game is shutting down.\n" + textArea.getText());
+                System.exit(0);
+            } else if(input.equals("use attack")) {
+            } else {
+                textArea.setText("Command not recognised.\n" + textArea.getText());
+            }
         }
-        if(GroundType.equals("Enemy")) {
-            //if( this.chamberList.get(this.getCurrentFloor()).isEnemyDead(this.getPlayerY()/50,this.getPlayerX()/50) == false) {
-            //}
-        }
+
     }
 
     public class Chamber {
         int ChamberNumber;
-        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+        //ArrayList<Enemy> enemies = new ArrayList<Enemy>();
         // ArrayList<Item> items = new ArrayList<Item>();
         ArrayList<ArrayList<GroundType>> chamber = new ArrayList<>(15);
         String floorDescription;
@@ -224,18 +245,18 @@ public class Map {
                 chamber.add(new ArrayList());
                 for(int j = 0; j < 15; j++) {
                     if(chamberMap[i][j] == "W") {
-                        chamber.get(i).add(new GroundType("Wall", Color.GRAY, 0));
+                        chamber.get(i).add(new GroundType("Wall", Color.GRAY));
                     } else if(chamberMap[i][j] == "O") {
-                        chamber.get(i).add(new GroundType("Open", Color.WHITE, 0));
+                        chamber.get(i).add(new GroundType("Open", Color.WHITE));
                     } else if(chamberMap[i][j] == "C") {
-                        chamber.get(i).add(new GroundType("Chest", Color.YELLOW, 0));
+                        chamber.get(i).add(new GroundType("Chest", Color.YELLOW));
                     } else if(chamberMap[i][j] == "P") {
-                        chamber.get(i).add(new GroundType("PreviousFloorDoor",Color.BLACK, 0));
+                        chamber.get(i).add(new GroundType("PreviousFloorDoor",Color.BLACK));
                     } else if(chamberMap[i][j] == "N") {
-                        chamber.get(i).add(new GroundType("NextFloorDoor",Color.GREEN, 0));
+                        chamber.get(i).add(new GroundType("NextFloorDoor",Color.GREEN));
                     } else if(chamberMap[i][j] == "E") {
-                        chamber.get(i).add(new GroundType("Enemy",Color.RED, enemies.size() + 1));
-                        enemies.add(new Enemy(4));
+                        chamber.get(i).add(new GroundType("Enemy",Color.RED));
+                        //enemies.add(new Enemy(4));
                     }
                 }
             }
@@ -245,12 +266,10 @@ public class Map {
             String GroundType;
             Color color;
             boolean empty;
-            int EnemyNumber;
-            public GroundType(String type, Color color, int numb) {
+            public GroundType(String type, Color color) {
                 this.GroundType = type;
                 this.color = color;
                 this.empty = false;
-                this.EnemyNumber = numb;
             }
 
             public void setChestToEmpty() {
@@ -260,7 +279,7 @@ public class Map {
             public String getGroundType() {return this.GroundType;}
 
             public boolean isChestEmpty() {return this.empty;}
-          
+
             public Color getColor() {return this.color;}
         }
 
@@ -269,7 +288,7 @@ public class Map {
         public void setChestToEmpty(int i, int j) {this.chamber.get(i).get(j).setChestToEmpty();}
 
         public boolean isChestEmpty(int i, int j) {return this.chamber.get(i).get(j).isChestEmpty();}
-       
+
         public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
 
         public String getFloorDescription() {return this.floorDescription;}
@@ -289,11 +308,13 @@ public class Map {
         double currentWeight;
         int currentFloor;
         int movesLeft;
+        boolean inCombat;
         ArrayList<Item> inventory = new ArrayList<Item>();
         ArrayList<Integer> xBackLog = new ArrayList<Integer>();
         ArrayList<Integer> yBackLog = new ArrayList<Integer>();
         ArrayList<Integer> floorBackLog = new ArrayList<Integer>();
         public Player() {
+            this.inCombat = false;
             this.x = 50;
             this.y = 350;
             this.Health = 200;
@@ -326,8 +347,11 @@ public class Map {
             Item item = new Item();
             if(addWeightPossible(item.getWeight()) == true) {
                 this.inventory.add(item);
+                return itemToString(item);
+            } else {
+                return "this item is too heavy to fit into your inventory.";
             }
-            return itemToString(item);
+            //return itemToString(item);
         }
 
         public boolean addWeightPossible(double weight) {
@@ -425,8 +449,8 @@ public class Map {
                 this.Name = "Janitor";
                 this.Health = 150;
                 Attacks.add(new Attack("Wet floor", 20));
-                Attacks.add(new Attack("placeholder 2", 30));
-                Attacks.add(new Attack("placeholder 3", 40));
+                Attacks.add(new Attack("Toilet plunger slash", 30));
+                Attacks.add(new Attack("Slippery soap", 40));
                 if (roll <= 40) {
                     currentAttack = Attacks.get(0);
                 }
@@ -472,6 +496,13 @@ public class Map {
             }
         }
 
+        public boolean isEnemyDead() {
+            if(this.Health <= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         /*
         public void enemyAttack() {
         int newHealth = Player.getHealth() - currentAttack.Damage;

@@ -27,6 +27,17 @@ public class Game extends JFrame {
                     canvas.updateGraphics(50, 50);
                     textField.setText("");
                     repaint();
+                    if(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50).equals("Enemy")) {
+                            if(map.player.inCombat == false) {
+                                textArea.setText("Enemy Engaged!\n" + textArea.getText());
+                            }
+                            map.player.inCombat = true;
+                            Combat fight = new Combat(textArea);
+                            if(input.equals("use attack")) {
+                                textArea.setText(fight.playerAttack() + textArea.getText());
+                            }
+                        }
+                    
                 }
             });
         pack();      
@@ -57,7 +68,7 @@ public class Game extends JFrame {
                     drawImage.drawRect(i,j,50,50);
                 }
             }
-            drawImage.setColor(Color.red);
+            drawImage.setColor(Color.BLUE);
             drawImage.fillOval(map.getPlayerX(),map.getPlayerY(), 50, 50);
         }
 
