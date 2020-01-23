@@ -10,84 +10,84 @@ public class Map {
         this.addToBackLog();
         String[][] chamber1 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"N","O","C","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","W","O","W","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","W","O","O","O","O","O","W","C","W"},
+                {"W","O","O","O","O","O","W","W","W","W","O","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","O","O","W","O","O","O","O","O","O","O","O","W","W","W"},
+                {"W","O","O","W","O","O","O","O","O","O","O","W","W","W","W"},
+                {"W","O","O","W","O","O","O","O","O","O","O","W","W","W","W"},
+                {"W","O","O","W","O","O","O","O","O","O","W","W","W","W","W"},
+                {"W","C","O","W","O","O","O","O","O","O","W","W","W","W","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber2 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"P","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","W","O","C","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","W","O","O","O","W"},
+                {"W","O","W","O","O","O","O","O","O","O","W","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","W","W","O","W","W"},
+                {"W","O","O","W","O","O","O","O","O","O","O","W","O","O","W"},
+                {"W","W","O","W","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","P","O","W","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","W","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","O","O","W","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","O","W","O","O","O","O","O","O","O","W"},
+                {"W","O","W","O","W","O","O","W","O","O","O","O","O","O","W"},
+                {"W","O","O","O","W","O","O","O","W","O","O","O","O","O","W"},
+                {"W","O","O","O","W","O","O","O","W","O","O","O","O","O","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber3 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"P","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber4 = {
-                {"W","W","W","W","W","P","W","W","W","W","W","W","W","W","W"},
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","W","W","W","W","W","W","W","W","W","W","N","W","W"}};
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber5 = {
-                {"W","W","W","W","W","W","W","W","W","W","W","W","W","P","W"},
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","N","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber6 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
@@ -95,22 +95,22 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"P","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","N"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
 
-        this.chamberList.add(new Chamber(1, chamber1));
-        this.chamberList.add(new Chamber(2, chamber2));
-        this.chamberList.add(new Chamber(3, chamber3));
-        this.chamberList.add(new Chamber(4, chamber4));
-        this.chamberList.add(new Chamber(5, chamber5));
-        this.chamberList.add(new Chamber(6, chamber6));
+        this.chamberList.add(new Chamber(1, chamber1, "This is the first floor"));
+        this.chamberList.add(new Chamber(2, chamber2, "This is the second floor"));
+        this.chamberList.add(new Chamber(3, chamber3, "This is the third floor"));
+        this.chamberList.add(new Chamber(4, chamber4, "This is the fourth floor"));
+        this.chamberList.add(new Chamber(5, chamber5, "This is the fifth floor"));
+        this.chamberList.add(new Chamber(6, chamber6, "This is the sixt floor"));
 
     }
 
@@ -126,24 +126,28 @@ public class Map {
                 this.setPlayerX(-50);
                 this.addToBackLog();
                 textArea.setText("Command 'go left' recognised: you have moved to the left.\n" + textArea.getText());
+                this.player.movesLeft -= 1;
             }
         } else if(input.equals("go right")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType(this.getPlayerY()/50,(this.getPlayerX()/50)+1).equals("Wall")) {
                 this.setPlayerX(50);
                 this.addToBackLog();
                 textArea.setText("Command 'go right' recognised: you have moved to the right.\n" + textArea.getText());
+                this.player.movesLeft -= 1;
             }
         } else if(input.equals("go up")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)-1,this.getPlayerX()/50).equals("Wall")) {
                 this.setPlayerY(-50);
                 this.addToBackLog();
                 textArea.setText("Command 'go up' recognised: you have moved up.\n" + textArea.getText());
+                this.player.movesLeft -= 1;
             }
         } else if(input.equals("go down")) {
             if(!this.chamberList.get(this.getCurrentFloor()).getGroundType((this.getPlayerY()/50)+1,this.getPlayerX()/50).equals("Wall")) {
                 this.setPlayerY(+50);
                 this.addToBackLog();
                 textArea.setText("Command 'go down' recognised: you have moved down.\n" + textArea.getText());
+                this.player.movesLeft -= 1;
             }
         } else if(input.equals("quit")) {
             textArea.setText("Command 'quit' recognised: the game is shutting down.\n" + textArea.getText());
@@ -151,31 +155,38 @@ public class Map {
         } else if(input.equals("back")) {
             this.back();
             textArea.setText("Command 'back' recognised: you have moved back to your previous location.\n" + textArea.getText());
+            this.player.movesLeft -= 1;
         } else if(input.equals("next floor")) {
             textArea.setText("Command 'next floor' recognised: command not executed, you are not standing on a next floor door block.\n" + textArea.getText());
             if(GroundType.equals("NextFloorDoor")) {
                 this.player.setCurrentFloor(1);
                 this.hardSetPlayerX(50);
-                this.hardSetPlayerY(50);
+                this.hardSetPlayerY(350);
                 this.player.addToBackLog();
                 textArea.setText("Command 'next floor' recognised: you have moved to the next floor.\n" + textArea.getText());
+                textArea.setText(this.chamberList.get(this.player.getCurrentFloor()).getFloorDescription() + "\n" + textArea.getText());
+                this.player.movesLeft -= 1;
             }    
         } else if(input.equals("previous floor")) {
             textArea.setText("Command 'previous floor' recognised: command not executed, you are not standing on a previous floor door block.\n" + textArea.getText());
             if(GroundType.equals("PreviousFloorDoor")) {
                 this.player.setCurrentFloor(-1);
                 this.hardSetPlayerX(50);
-                this.hardSetPlayerY(50);
+                this.hardSetPlayerY(350);
                 this.player.addToBackLog();
                 textArea.setText("Command 'previous floor' recognised: you have moved to the previous floor.\n" + textArea.getText());
+                textArea.setText(this.chamberList.get(this.player.getCurrentFloor()).getFloorDescription() + "\n" + textArea.getText());
+                this.player.movesLeft -= 1;
             }
         } else if(input.equals("open chest")) {
             if(GroundType.equals("Chest")) {
                 if( this.chamberList.get(this.getCurrentFloor()).isChestEmpty(this.getPlayerY()/50,this.getPlayerX()/50) == false) {
-                    String item = this.player.addToInventory();
+                    int numberOfItemsInChest = getRandomIntegerBetweenRange(1,3); 
+                    for(int i = 0; i < numberOfItemsInChest; i++) {
+                        String item = this.player.addToInventory();
+                        textArea.setText(item + textArea.getText());
+                    } 
                     this.chamberList.get(this.getCurrentFloor()).setChestToEmpty(this.getPlayerY()/50,this.getPlayerX()/50);
-                    //open chest and set to empty
-                    textArea.setText(item + textArea.getText());
                     textArea.setText("Command 'open chest' recognised: you have opened the chest, the contents of the chest are:\n" + textArea.getText());
                 } else {
                     textArea.setText("Command 'open chest' recognised: this chest is already empty.\n" + textArea.getText());
@@ -187,7 +198,11 @@ public class Map {
             this.printInventory(textArea);
             textArea.setText("Command 'open inventory' recognised: these are the items currently in your inventory:\n" + textArea.getText());
         } else if(input.equals("clear console")) {
-             textArea.setText("");
+            textArea.setText("");
+        } else if(input.equals("about")) {
+            textArea.setText("lorum ipsum\n" + textArea.getText());
+        } else if(input.equals("moves left")) {
+            textArea.setText("command recognised: moves left: " + this.player.getMovesLeft() + "\n" + textArea.getText());
         } else {
             textArea.setText("Command not recognised.\n" + textArea.getText());
         }
@@ -198,7 +213,9 @@ public class Map {
         // ArrayList<Enemy> enemies = new ArrayList<Enemy>();
         // ArrayList<Item> items = new ArrayList<Item>();
         ArrayList<ArrayList<GroundType>> chamber = new ArrayList<>(15);
-        public Chamber(int ChamberNum, String[][] chamberMap) {
+        String floorDescription;
+        public Chamber(int ChamberNum, String[][] chamberMap, String description) {
+            this.floorDescription = description;
             for(int i = 0; i < 15; i++) {
                 chamber.add(new ArrayList());
                 for(int j = 0; j < 15; j++) {
@@ -247,6 +264,8 @@ public class Map {
         public boolean isChestEmpty(int i, int j) {return this.chamber.get(i).get(j).isChestEmpty();}
 
         public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
+        
+        public String getFloorDescription() {return this.floorDescription;}
     }
 
     public void givePlayerRandomItem(int i, int j) {
@@ -262,17 +281,19 @@ public class Map {
         double maxWeight;
         double currentWeight;
         int currentFloor;
+        int movesLeft;
         ArrayList<Item> inventory = new ArrayList<Item>();
         ArrayList<Integer> xBackLog = new ArrayList<Integer>();
         ArrayList<Integer> yBackLog = new ArrayList<Integer>();
         ArrayList<Integer> floorBackLog = new ArrayList<Integer>();
         public Player() {
             this.x = 50;
-            this.y = 50;
+            this.y = 350;
             this.Health = 200;
             this.maxWeight = 100.0;
             this.currentWeight = 0.0;
             this.currentFloor = 0;
+            this.movesLeft = 300;
             this.addToInventory();
             this.addToInventory();
         }
@@ -310,7 +331,7 @@ public class Map {
                 return false;
             }
         }
-        
+
         public String itemToString(Item item) {
             return "Item: \n"+ "   "+item.Type + ": " + String.valueOf(item.Effect) + "\n    Weight: " + String.valueOf(item.Weight) + "\n";
         }
@@ -320,7 +341,7 @@ public class Map {
             this.yBackLog.add(this.y);
             this.floorBackLog.add(this.currentFloor);
         }
-        
+
         public void setX(int x) {this.x += x;}
 
         public void setY(int y) {this.y += y;} 
@@ -328,7 +349,7 @@ public class Map {
         public int getX() {return this.x;}
 
         public int getY() {return this.y;}
-        
+
         public void hardSetPlayerX(int x) {this.x = x;}
 
         public void hardSetPlayerY(int y) {this.y = y;}
@@ -336,6 +357,8 @@ public class Map {
         public void setCurrentFloor(int floor) {this.currentFloor += floor;}
 
         public int getCurrentFloor() {return this.currentFloor;}
+        
+        public int getMovesLeft() {return this.movesLeft;}
     }
 
     public class Attack {
@@ -375,7 +398,7 @@ public class Map {
         double x = Math.round(((double)(Math.random()*((max-min)+1))+min) * 10)/10.0;
         return x;
     }
-    
+
     public void setPlayerX(int x) {this.player.setX(x);}
 
     public void setPlayerY(int y) {this.player.setY(y);}

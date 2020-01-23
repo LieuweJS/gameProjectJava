@@ -29,10 +29,7 @@ public class Game extends JFrame {
                     repaint();
                 }
             });
-            JScrollPane gameScrollPane = new JScrollPane(canvas);
-             add(gameScrollPane, BorderLayout.CENTER);
-        pack();
-        
+        pack();      
         setVisible(true);
     }
 
