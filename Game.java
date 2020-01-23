@@ -34,7 +34,7 @@ public class Game extends JFrame {
                                 map.player.inCombat = true;
                             }                         
                             if(input.equals("use attack")) {
-                                Combat combat = new Combat(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50));
+                                Combat combat = new Combat(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50), map.player);
                                 textArea.setText(combat.playerAttack() + textArea.getText());
                             }
                         }
