@@ -1,0 +1,29 @@
+You are an overworked employee at an unnamed office building, but at 2 hours before your shift is done you hear of great news. The sandwich shop on the other side of street is selling sandwiches at a 50% discount. supplies are limited however. and thus you must escape your office building at any cost while ensuring that the other employees and you boss do not get the sandwiches before you.
+
+You must use various office supplies to descend floors until you reach the ground floor exit, where you must face your boss.
+
+items:
+stapler, weapon
+ruler, weapon
+pouch of pens, weapon
+duct tape, armor
+file cabinet, chest
+computers, interactable
+copy machine, interactable
+printer, interactable
+
+The player will start with a fairly low time limit, after all, there are more people who are going after a sandwich.
+by defeating your fellow employees you can get extra time.
+you can also use money you find around to bribe employees to not go after the sandwich.
+
+there are puzzles around the various floors. some are needed to progress while others will give optional benefits such as extra money, equipment or more time.
+
+The following commands are possible:
+
+go left - Move to the left.
+go right - Move to the right.
+go up - Move up.
+go down - Move down.
+back - Go to the previous room.
+ascend -  Ride the elevator to the previous floor.
+descend - Ride the elevator to the next floor.

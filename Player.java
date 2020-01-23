@@ -5,6 +5,8 @@ public class Player {
         int x;
         int y;
         int Health;
+        int time;
+        int basedamage;
         double maxWeight;
         double currentWeight;
         int currentFloor;
@@ -15,6 +17,8 @@ public class Player {
             this.x = 0;
             this.y = 0;
             this.Health = 200;
+            this.time = 100;
+            this.basedamage = 20;
             this.maxWeight = 100.0;
             this.currentWeight = 0.0;
             this.currentFloor = 0;
@@ -23,6 +27,11 @@ public class Player {
         public void setCurrentFloor(int floor) {
             this.currentFloor += floor;
         }
+        
+        public int getHealth() {
+           return Health;
+        }
+       
 
         public void addToBackLog() {
             this.xBackLog.add(this.x);

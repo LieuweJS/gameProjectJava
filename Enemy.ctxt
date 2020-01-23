@@ -1,5 +1,5 @@
 #BlueJ class context
 comment0.target=Enemy
-comment1.params=Health\ EnemyType
-comment1.target=Enemy(int,\ int)
+comment1.params=EnemyType
+comment1.target=Enemy(int)
 numComments=2

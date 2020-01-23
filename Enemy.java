@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Enemy {
     String Name;
-    int Health;
+    public int Health;
     Attack currentAttack;
     Random rand = new Random();
     int roll;
     ArrayList<Attack> Attacks = new ArrayList<Attack>();
-    public Enemy(int Health, int EnemyType) {
+    public Enemy(int EnemyType) {
         //tougher enemies are less likely to use ultimate attacks (the 40 damage ones)
-        if(EnemyType == 1) {
+        if(EnemyType == 0 || EnemyType == 1) {
             this.Name = "IT Helpdesk Employee";
             this.Health = 200;
             this.Attacks.add(new Attack("Blackmail Opponent", 20));
@@ -26,7 +26,7 @@ public class Enemy {
             }
             
 
-        } else if(EnemyType == 2) {
+        } else if(EnemyType == 2 || EnemyType == 3) {
             this.Name = "Janitor";
             this.Health = 150;
             Attacks.add(new Attack("Wet floor", 20));
@@ -42,7 +42,7 @@ public class Enemy {
                 currentAttack = Attacks.get(2);
             }
 
-        } else if(EnemyType == 3) {
+        } else if(EnemyType == 4 || EnemyType == 5) {
             this.Name = "Cafeteria employee";
             this.Health = 300;
             this.Attacks.add(new Attack("Coffee Break", 20));
@@ -58,7 +58,7 @@ public class Enemy {
                 currentAttack = Attacks.get(2);
             }
 
-        } else if(EnemyType == 4) {
+        } else if(EnemyType == 6) {
             this.Name = "Manager";
             this.Health = 200;
             this.Attacks.add(new Attack("Employee Review", 25));
@@ -77,21 +77,6 @@ public class Enemy {
         }
     }
 
-    /*
-    public void enemyAttack() {
-
-    int newHealth = Player.getHealth() - currentAttack.Damage;
-    switch (roll) {
-    case 1:
-
-    break;
-    case 2:
-
-    break;
-    case 3:
-
-    break;
-
-    }
-     */
+ 
+    
 }

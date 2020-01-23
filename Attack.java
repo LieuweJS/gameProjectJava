@@ -5,4 +5,5 @@
             this.Name = Name;
             this.Damage = Damage;
         }
+        
     }
