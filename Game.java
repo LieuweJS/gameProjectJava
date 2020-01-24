@@ -54,11 +54,14 @@ public class Game extends JFrame {
                                 map.player.Health = newStats[0];
                                 map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health = newStats[1];
                                 String endResult = "";
-                                if(newStats[1] <= 0) {
+                                if(newStats[0] <= 0) {
+                                    System.exit(0);
+                                } else if(newStats[1] <= 0) {
                                     endResult =  "You have killed the enemy \n";
                                     map.player.inCombat = false;
                                     map.player.damage -= (map.player.damageBoostersActive * 30);
                                     map.player.damageBoostersActive = 0;
+                                    map.player.movesLeft += 25;
                                 } else {
                                     endResult = "the enemy has struck back, using their " + usedAttack +
                                     " attack, your health is now: " + map.player.Health + "\n you have attacked the enemy, the enemies health is now: " + 
