@@ -16,7 +16,7 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","N","B","Q","O","O","O","O","O","O","O","O","N","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","E","W","O","O","O","O","O","O","O","O","W","W","W"},
                 {"W","O","O","W","O","O","O","O","O","E","O","W","W","W","W"},
@@ -32,7 +32,7 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","W","W","O","W","W"},
                 {"W","O","O","W","O","O","O","O","O","O","O","W","O","O","W"},
                 {"W","W","O","W","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","N","W","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","P","O","W","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","W","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","W","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","E","W","O","O","O","O","O","O","O","W"},
@@ -48,7 +48,7 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","W","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","W","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","W","O","W","W"},
-                {"W","P","N","O","O","O","O","O","O","O","W","O","O","N","W"},
+                {"W","P","O","O","O","O","O","O","O","O","W","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","W","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","W","O","O","W"},
                 {"W","O","O","O","W","O","O","O","O","O","O","O","W","O","W"},
@@ -64,7 +64,7 @@ public class Map {
                 {"W","O","W","O","O","O","W","W","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","N","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","W","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","W","W","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","E","W","O","O","O","O","O","O","O","W"},
@@ -80,7 +80,7 @@ public class Map {
                 {"W","O","W","O","O","O","O","O","O","W","O","W","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","N","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","O","O","W","O","O","O","O","O","O","W","W"},
                 {"W","O","O","O","W","W","O","O","O","O","O","W","W","O","W"},
@@ -105,12 +105,12 @@ public class Map {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
 
-        this.chamberList.add(new Chamber(1, chamber1, "This is the first floor"));
-        this.chamberList.add(new Chamber(2, chamber2, "This is the second floor"));
-        this.chamberList.add(new Chamber(3, chamber3, "This is the third floor"));
-        this.chamberList.add(new Chamber(4, chamber4, "This is the fourth floor"));
-        this.chamberList.add(new Chamber(5, chamber5, "This is the fifth floor"));
-        this.chamberList.add(new Chamber(6, chamber6, "This is the sixth floor"));
+        this.chamberList.add(new Chamber(1, chamber1, "This is the first floor, you must get to the next floor. \n you may explore the area if you wish, killing enemies will grant you a higher score."));
+        this.chamberList.add(new Chamber(2, chamber2, "This is the second floor, you must get to the next floor. \n you may explore the area if you wish, killing enemies will grant you a higher score."));
+        this.chamberList.add(new Chamber(3, chamber3, "This is the third floor, you must get to the next floor. \n you may explore the area if you wish, killing enemies will grant you a higher score."));
+        this.chamberList.add(new Chamber(4, chamber4, "This is the fourth floor, you must get to the next floor. \n you may explore the area if you wish, killing enemies will grant you a higher score."));
+        this.chamberList.add(new Chamber(5, chamber5, "This is the fifth floor, you must get to the next floor. \n you may explore the area if you wish, killing enemies will grant you a higher score."));
+        this.chamberList.add(new Chamber(6, chamber6, "This is the sixth floor, you must get to the next floor. \n you must defeat the final boss and claim your prizes"));
 
     }
 
