@@ -57,6 +57,8 @@ public class Game extends JFrame {
                                 if(newStats[1] <= 0) {
                                     endResult =  "You have killed the enemy \n";
                                     map.player.inCombat = false;
+                                    map.player.damage -= (map.player.damageBoostersActive * 30);
+                                    map.player.damageBoostersActive = 0;
                                 } else {
                                     endResult = "the enemy has struck back, using their " + usedAttack +
                                     " attack, your health is now: " + map.player.Health + "\n you have attacked the enemy, the enemies health is now: " + 

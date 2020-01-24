@@ -227,10 +227,35 @@ public class Map {
                 System.exit(0);
             } else if(input.equals("use attack")) {
             } else if(input.equals("use healing")) {
-                this.player.Health += 50;
+                boolean found = false;
+                for(int i = 0; i < this.player.inventory.size(); i++) {
+                    if(this.player.inventory.get(i).Type.equals("Healing")) {
+                        this.player.damage += 30;
+                        this.player.inventory.remove(i);
+                        this.player.damageBoostersActive += 1;
+                        textArea.setText("you have used a healing item, your health is now: "+ this.player.Health + "\n" + textArea.getText());
+                        found = true;
+                        break;
+                    }
+                } 
+                if(found == false) {
+                    textArea.setText("there are no health items in your inventory \n" + textArea.getText());
+                }
             } else if(input.equals("use damage boost")) {
-                this.player.damage += 30;
-                
+                boolean found = false;
+                for(int i = 0; i < this.player.inventory.size(); i++) {
+                    if(this.player.inventory.get(i).Type.equals("Damage")) {
+                        this.player.damage += 30;
+                        this.player.inventory.remove(i);
+                        this.player.damageBoostersActive += 1;
+                        textArea.setText("you have used a damage booster, your damage is now: "+ this.player.damage + " for the remainder of the battle\n" + textArea.getText());
+                        found = true;
+                        break;
+                    }
+                } 
+                if(found == false) {
+                    textArea.setText("there are no damage boosters in your inventory \n" + textArea.getText());
+                }
             } else {
                 textArea.setText("Command not recognised.\n" + textArea.getText());
             }
@@ -284,7 +309,7 @@ public class Map {
             }
 
             public String getGroundType() {return this.GroundType;}
-            
+
             public int getEnemyId() {return this.enemyId;}
 
             public boolean isChestEmpty() {return this.empty;}
@@ -299,7 +324,7 @@ public class Map {
         public boolean isChestEmpty(int i, int j) {return this.chamber.get(i).get(j).isChestEmpty();}
 
         public Color getColor(int i, int j) {return this.chamber.get(i).get(j).getColor();}
-        
+
         public int getEnemyId(int i, int j) {return this.chamber.get(i).get(j).getEnemyId();}
 
         public String getFloorDescription() {return this.floorDescription;}
@@ -321,11 +346,13 @@ public class Map {
         int movesLeft;
         boolean inCombat;
         int damage;
+        int damageBoostersActive;
         ArrayList<Item> inventory = new ArrayList<Item>();
         ArrayList<Integer> xBackLog = new ArrayList<Integer>();
         ArrayList<Integer> yBackLog = new ArrayList<Integer>();
         ArrayList<Integer> floorBackLog = new ArrayList<Integer>();
         public Player() {
+            this.damageBoostersActive = 0;
             this.damage = 60;
             this.inCombat = false;
             this.x = 50;
@@ -421,11 +448,11 @@ public class Map {
         public Item() {
             if(getRandomIntegerBetweenRange(0,1) == 1) {
                 this.Type = "Damage";
-                this.Effect = getRandomIntegerBetweenRange(20,35);
+                this.Effect = 30;
                 this.Weight = getRandomDoubleBetweenRange(1.0,2.0);
             } else {
                 this.Type = "Healing";
-                this.Effect = getRandomIntegerBetweenRange(20,35);
+                this.Effect = 50;
                 this.Weight = getRandomDoubleBetweenRange(1.0, 2.0);
             }
         }
