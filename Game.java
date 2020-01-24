@@ -33,9 +33,37 @@ public class Game extends JFrame {
                                 textArea.setText("Enemy Engaged!\n" + textArea.getText());
                                 map.player.inCombat = true;
                             }                         
-                            if(input.equals("use attack")) {
-                                Combat combat = new Combat(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50), map.player);
-                                textArea.setText(combat.playerAttack() + textArea.getText());
+                            if(input.equals("use attack")) {  
+                                int enemyHealth = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health;
+                                int enemyDamage1 = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Attacks.get(0).Damage;
+                                int enemyDamage2 = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Attacks.get(1).Damage;
+                                int enemyDamage3 = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Attacks.get(2).Damage;
+                                String enemyAttack1 = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Attacks.get(0).Name;
+                                String enemyAttack2 = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Attacks.get(1).Name;
+                                String enemyAttack3 = map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Attacks.get(2).Name;
+                                Combat combat = new Combat(map.player.Health,  map.player.damage, enemyHealth, enemyDamage1, enemyDamage2, enemyDamage3);
+                                int[] newStats = combat.Attack();
+                                String usedAttack = enemyAttack1;
+                                if(newStats[2] == 0) {
+                                    usedAttack = enemyAttack1;
+                                } else if(newStats[2] == 1) {
+                                    usedAttack = enemyAttack2;
+                                } else if(newStats[2] == 2) {
+                                    usedAttack = enemyAttack3;
+                                }
+                                map.player.Health = newStats[0];
+                                map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health = newStats[1];
+                                String endResult = "";
+                                if(newStats[1] <= 0) {
+                                endResult =  "You have killed the enemy \n";
+                                map.player.inCombat = false;
+                                } else {
+                                endResult = "the enemy has struck back, using their " + usedAttack +
+                                " attack, your health is now: " + map.player.Health + "\n you have attacked the enemy, the enemies health is now: " + 
+                                map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health + "\n";                       
+                                
+                                }
+                                textArea.setText(endResult+ textArea.getText());
                             }
                         }
                     
