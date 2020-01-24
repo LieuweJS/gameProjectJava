@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Combat
+comment0.text=\r\n\ this\ is\ the\ class\ for\ the\ Combat\ system\r\n\r\n\ @author\ Jan\ Udema.\r\n\ @author\ Lieuwe\ Baron.\r\n\ @version\ 23/01/2020.\r\n
+comment1.params=playerHP\ playerDamage\ enemyHP\ enemyDamage1\ enemyDamage2\ enemyDamage3\ enemyChance1\ enemyChance2
+comment1.target=Combat(int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment1.text=\r\n\ this\ is\ the\ constructor\ for\ the\ Combat\ class.\r\n\ @author\ Jan\ Udema.\r\n\ @author\ Lieuwe\ Baron.\r\n\ @param\ playerHP\:\ this\ input\ determines\ the\ health\ that\ the\ player\ has\ in\ this\ combat\ instance.\r\n\ @param\ playerDamage\:\ this\ input\ determines\ the\ damage\ that\ the\ player\ does\ in\ this\ combat\ instance.\r\n\ @param\ enemyHP\:\ this\ input\ determines\ the\ health\ that\ the\ enemy\ has\ in\ this\ combat\ instance.\r\n\ @param\ enemyDamage1\:\ this\ input\ determines\ the\ damage\ of\ the\ first\ attack\ of\ the\ enemy\ in\ this\ combat\ instance.\r\n\ @param\ enemyDamage2\:\ this\ input\ determines\ the\ damage\ of\ the\ second\ attack\ of\ the\ enemy\ in\ this\ combat\ instance.\r\n\ @param\ enemyDamage3\:\ this\ input\ determines\ the\ damage\ of\ the\ third\ attack\ of\ the\ enemy\ in\ this\ combat\ instance.\r\n\ @param\ enemyChance1\:\ this\ input\ determines\ the\ chance\ of\ the\ first\ attack\ of\ the\ enemy\ in\ this\ combat\ instance.\r\n\ @param\ enemyChance2\:\ this\ input\ determines\ the\ chance\ of\ the\ second\ attack\ of\ the\ enemy\ in\ this\ combat\ instance.\r\n
+comment2.params=
+comment2.target=int[]\ Attack()
+comment2.text=\r\n\ this\ is\ the\ Attack\ method\ of\ the\ Combat\ class,\ it\ calculates\ the\ outcome\ of\ the\ battle.\r\n\ @return\ resultArray\:\ returns\ an\ array\ with\ the\ results\ of\ the\ battle.\r\n
+numComments=3

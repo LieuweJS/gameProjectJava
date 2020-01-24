@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Game
+comment0.text=\r\n\ this\ is\ the\ main\ class\ of\ the\ game,\ the\ Game\ class,\ this\ is\ the\ basis\ of\ everything.\r\n\ @author\ Lieuwe\ Baron.\r\n\ @version\ 23/01/2020.\r\n
+comment1.params=
+comment1.target=Game()
+comment2.params=arg0
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+comment3.text=\r\n\ the\ main\ method\ of\ the\ game.\r\n
+comment4.params=min\ max
+comment4.target=int\ getRandomIntegerBetweenRange(int,\ int)
+numComments=5

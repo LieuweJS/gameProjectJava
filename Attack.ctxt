@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Attack
+comment0.text=\r\n\ @author\ Jan\ Udema.\r\n\ @version\ 23/01/2020.\r\n\ this\ class\ generates\ an\ attack\ for\ the\ enemy\ class.\r\n
+comment1.params=Name\ Damage\ chance
+comment1.target=Attack(java.lang.String,\ int,\ int)
+comment1.text=\r\n\ this\ is\ the\ constructor\ for\ the\ Attack\ class.\r\n\ @param\ Name\:\ this\ input\ determines\ the\ Name\ of\ the\ instance.\r\n\ @param\ Damage\:\ this\ input\ determines\ the\ Damage\ stat\ of\ the\ attack.\r\n\ @param\ chance\:\ determines\ the\ chance\ of\ the\ attack\ being\ rolled.\r\n
+numComments=2

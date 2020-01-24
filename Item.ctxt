@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Item
+comment0.text=\r\n\ this\ is\ the\ Item\ class,\ it\ contains\ the\ stats\ for\ an\ item,\ an\ item\ can\ be\ either\ a\ healing\ item,\ or\ a\ damage\ boosting\ item.\r\n\ @author\ Lieuwe\ Baron.\r\n\ @author\ Jan\ Udeman.\r\n\ @version\ 23/01/2020.\r\n
+comment1.params=
+comment1.target=Item()
+comment1.text=\r\n\ this\ is\ the\ constructior\ for\ the\ Item\ Class.\r\n
+comment2.params=
+comment2.target=double\ getWeight()
+comment2.text=\r\n\ this\ method\ returns\ the\ weight\ of\ the\ item.\r\n\ @return\:\ returns\ the\ weight\ of\ the\ item.\r\n
+comment3.params=min\ max
+comment3.target=int\ getRandomIntegerBetweenRange(int,\ int)
+comment3.text=\r\n\ this\ method\ generated\ a\ random\ integer\ between\ 2\ given\ values.\r\n\ @param\ min\:\ the\ minimum\ value\ generated\ by\ this\ method.\r\n\ @param\ max\:\ the\ maximum\ value\ generated\ by\ this\ method.\r\n\ @return\:\ returns\ the\ random\ integer\ between\ the\ min\ and\ the\ max.\r\n
+comment4.params=min\ max
+comment4.target=double\ getRandomDoubleBetweenRange(double,\ double)
+comment4.text=\r\n\ this\ method\ generated\ a\ random\ double\ between\ 2\ given\ values.\r\n\ @param\ min\:\ the\ minimum\ value\ generated\ by\ this\ method.\r\n\ @param\ max\:\ the\ maximum\ value\ generated\ by\ this\ method.\r\n\ @return\:\ returns\ the\ random\ double\ between\ the\ min\ and\ the\ max.\r\n
+numComments=5

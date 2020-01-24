@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Enemy
+comment0.text=\r\n\ @author\ Jan\ Udema.\r\n\ @author\ Lieuwe\ Baron.\r\n\ @version\ 23/01/2020.\r\n
+comment1.params=EnemyType
+comment1.target=Enemy(int)
+comment1.text=\r\n\ this\ is\ the\ constructor\ for\ the\ enemy\ class.\r\n\ @param\ EnemyType\:\ this\ input\ decides\ the\ type\ of\ the\ enemy\ instance.\r\n
+comment2.params=
+comment2.target=int\ getEnemyHealth()
+comment2.text=\r\n\ this\ method\ returns\ the\ health\ of\ the\ enemy.\r\n\ @return\:\ returns\ the\ health\ of\ the\ enemy.\r\n
+numComments=3
