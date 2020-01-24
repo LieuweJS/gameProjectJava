@@ -16,7 +16,7 @@ public class Map {
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","O","N","B","Q","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","E","W","O","O","O","O","O","O","O","O","W","W","W"},
                 {"W","O","O","W","O","O","O","O","O","E","O","W","W","W","W"},
@@ -26,83 +26,83 @@ public class Map {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber2 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","W","O","C","O","W"},
+                {"W","C","O","O","O","O","O","O","O","O","W","E","C","E","W"},
                 {"W","W","O","O","O","O","O","O","O","O","W","O","O","O","W"},
                 {"W","O","W","O","O","O","O","O","O","O","W","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","W","W","O","W","W"},
                 {"W","O","O","W","O","O","O","O","O","O","O","W","O","O","W"},
                 {"W","W","O","W","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","O","W","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","P","N","W","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","W","O","O","O","O","O","O","O","O","O","W","W"},
                 {"W","O","O","W","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","O","O","O","O","W","O","O","O","O","O","O","O","W"},
+                {"W","W","O","O","O","E","W","O","O","O","O","O","O","O","W"},
                 {"W","O","W","O","W","O","O","W","O","O","O","O","O","O","W"},
                 {"W","O","O","O","W","O","O","O","W","O","O","O","O","O","W"},
                 {"W","O","O","O","W","O","O","C","W","O","O","O","O","O","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber3 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","W","C","W","O","O","W","O","O","O","W"},
+                {"W","O","O","W","O","O","O","W","O","O","W","O","E","O","W"},
+                {"W","O","O","O","W","W","W","O","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","W","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","W","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","W","O","W","W"},
-                {"W","P","O","O","O","O","O","O","O","O","W","O","O","N","W"},
+                {"W","P","N","O","O","O","O","O","O","O","W","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","W","O","W","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","W","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","W","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","W","O","O","O","O","O","O","O","W","O","W"},
+                {"W","O","O","O","W","W","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","W","W","E","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","C","W","C","W","O","O","O","O","O","O","O","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber4 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","W","O","O","W","C","O","O","O","O","O","W"},
+                {"W","W","O","O","O","W","O","W","O","O","O","O","O","O","W"},
+                {"W","E","W","O","O","O","O","W","W","W","O","O","W","O","W"},
+                {"W","O","W","O","O","O","W","W","O","O","O","O","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
-                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","P","N","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","W","O","O","O","O","W","O","O","O","O","O","O","W","W"},
+                {"W","O","O","O","O","W","W","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","E","W","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","W","O","W","O","O","O","O","W","W","W"},
+                {"W","O","C","O","O","O","W","O","O","O","O","O","E","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","W","O","C","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber5 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","O","O","O","O","W","O","O","C","W"},
+                {"W","C","O","W","O","O","O","O","O","O","W","O","O","O","W"},
+                {"W","W","W","O","O","O","O","O","O","W","O","E","W","W","W"},
+                {"W","O","W","O","O","O","O","O","O","W","O","W","O","O","W"},
                 {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
+                {"W","P","N","O","O","O","O","O","O","O","O","O","O","N","W"},
                 {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","O","O","O","O","O","W","O","O","O","O","O","O","W","W"},
+                {"W","O","O","O","W","W","O","O","O","O","O","W","W","O","W"},
+                {"W","O","O","O","E","W","O","O","O","O","O","O","O","W","W"},
+                {"W","O","O","O","O","W","O","O","O","O","W","O","O","O","W"},
+                {"W","O","O","O","W","O","O","O","O","O","W","O","O","C","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
         String[][] chamber6 = {
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","P","O","O","O","O","O","O","O","O","O","O","O","N","W"},
-                {"W","W","O","O","O","O","O","O","O","O","O","O","O","W","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
-                {"W","O","O","O","O","O","O","O","O","O","O","O","O","O","W"},
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"W","C","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"W","O","O","O","O","O","W","W","W","W","W","W","W","W","W"},
+                {"W","O","O","O","O","O","O","W","O","O","O","W","W","W","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","W","W","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","C","W","W"},
+                {"W","P","O","O","O","O","O","O","O","O","O","O","B","Q","W"},
+                {"W","W","O","O","O","O","O","O","O","O","O","O","C","W","W"},
+                {"W","O","O","O","O","O","O","O","O","O","O","O","W","W","W"},
+                {"W","O","O","O","O","O","O","W","O","O","O","W","W","W","W"},
+                {"W","O","O","O","O","O","W","W","W","W","W","W","W","W","W"},
+                {"W","C","W","W","W","W","W","W","W","W","W","W","W","W","W"},
+                {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"},
                 {"W","W","W","W","W","W","W","W","W","W","W","W","W","W","W"}};
 
         this.chamberList.add(new Chamber(1, chamber1, "This is the first floor"));
@@ -110,7 +110,7 @@ public class Map {
         this.chamberList.add(new Chamber(3, chamber3, "This is the third floor"));
         this.chamberList.add(new Chamber(4, chamber4, "This is the fourth floor"));
         this.chamberList.add(new Chamber(5, chamber5, "This is the fifth floor"));
-        this.chamberList.add(new Chamber(6, chamber6, "This is the sixt floor"));
+        this.chamberList.add(new Chamber(6, chamber6, "This is the sixth floor"));
 
     }
 
@@ -209,7 +209,11 @@ public class Map {
                 textArea.setText("lorum ipsum\n" + textArea.getText());
             } else if(input.equals("moves left")) {
                 textArea.setText("command recognised: moves left: " + this.player.getMovesLeft() + "\n" + textArea.getText());
-            } else {
+            } else if(input.equals("complete quest")) {
+                if(GroundType.equals("End")) {
+                     textArea.setText("you have finished the game, your score was: " +this.player.movesLeft + "\n"+ textArea.getText());
+                }
+            }else {
                 textArea.setText("Command not recognised.\n" + textArea.getText());
             }
         } else {
@@ -266,7 +270,6 @@ public class Map {
     public class Chamber {
         int ChamberNumber;
         ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-        // ArrayList<Item> items = new ArrayList<Item>();
         ArrayList<ArrayList<GroundType>> chamber = new ArrayList<>(15);
         String floorDescription;
         public Chamber(int ChamberNum, String[][] chamberMap, String description) {
@@ -287,6 +290,11 @@ public class Map {
                     } else if(chamberMap[i][j] == "E") {
                         chamber.get(i).add(new GroundType("Enemy",Color.RED, enemies.size()));
                         enemies.add(new Enemy(getRandomIntegerBetweenRange(1,7)));
+                    }  else if(chamberMap[i][j] == "Q") {
+                        chamber.get(i).add(new GroundType("End",Color.PINK, -1));
+                    }  else if(chamberMap[i][j] == "B") {
+                        chamber.get(i).add(new GroundType("Boss",Color.ORANGE, enemies.size()));
+                        enemies.add(new Enemy(8));
                     }
                 }
             }
@@ -531,8 +539,22 @@ public class Map {
                 }
                 else if (roll > 90) {
                     currentAttack = Attacks.get(2);
+                } 
+            } else if(EnemyType == 8) {
+                this.Name = "Boss";
+                this.Health = 350;
+                this.Attacks.add(new Attack("Budget cuts", 30));
+                this.Attacks.add(new Attack("Mayor stakeholder", 45));
+                this.Attacks.add(new Attack("4-fold bash of office chair", 60));
+                if (roll <= 70) {
+                    currentAttack = Attacks.get(0);
                 }
-
+                else if (roll > 70 && roll <= 90) {
+                    currentAttack = Attacks.get(1);
+                }
+                else if (roll > 90) {
+                    currentAttack = Attacks.get(2);
+                }
             }
         }
 
