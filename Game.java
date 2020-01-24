@@ -28,7 +28,7 @@ public class Game extends JFrame {
                     textField.setText("");
                     repaint();
                     if(map.chamberList.get(map.getCurrentFloor()).getGroundType(map.getPlayerY()/50,map.getPlayerX()/50).equals("Enemy")) {
-                        if(map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health <= 0) {}
+                        if(map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health != 0) {
                             if(map.player.inCombat == false) {
                                 textArea.setText("Enemy Engaged!\n" + textArea.getText());
                                 map.player.inCombat = true;
@@ -55,18 +55,19 @@ public class Game extends JFrame {
                                 map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health = newStats[1];
                                 String endResult = "";
                                 if(newStats[1] <= 0) {
-                                endResult =  "You have killed the enemy \n";
-                                map.player.inCombat = false;
+                                    endResult =  "You have killed the enemy \n";
+                                    map.player.inCombat = false;
                                 } else {
-                                endResult = "the enemy has struck back, using their " + usedAttack +
-                                " attack, your health is now: " + map.player.Health + "\n you have attacked the enemy, the enemies health is now: " + 
-                                map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health + "\n";                       
-                                
+                                    endResult = "the enemy has struck back, using their " + usedAttack +
+                                    " attack, your health is now: " + map.player.Health + "\n you have attacked the enemy, the enemies health is now: " + 
+                                    map.chamberList.get(map.getCurrentFloor()).enemies.get(map.chamberList.get(map.getCurrentFloor()).getEnemyId(map.getPlayerY()/50,map.getPlayerX()/50)).Health + "\n";                       
+
                                 }
                                 textArea.setText(endResult+ textArea.getText());
                             }
                         }
-                    
+                    }
+
                 }
             });
         pack();      

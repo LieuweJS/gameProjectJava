@@ -226,6 +226,11 @@ public class Map {
                 textArea.setText("Command 'quit' recognised: the game is shutting down.\n" + textArea.getText());
                 System.exit(0);
             } else if(input.equals("use attack")) {
+            } else if(input.equals("use healing")) {
+                this.player.Health += 50;
+            } else if(input.equals("use damage boost")) {
+                this.player.damage += 30;
+                
             } else {
                 textArea.setText("Command not recognised.\n" + textArea.getText());
             }
